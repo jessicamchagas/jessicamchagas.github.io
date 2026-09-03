@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jessica Monteiro | Desenvolvedora & IA</title>
+
+    <meta name="description"
+          content="Portfólio profissional de Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação e Desenvolvimento.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08080c;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(8, 8, 12, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #aaa;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #fff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #7c3aed;
+            filter: blur(180px);
+            opacity: 0.18;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(139,92,246,0.5);
+            border-radius: 30px;
+            color: #c4b5fd;
+            font-size: 13px;
+            margin-bottom: 25px;
+            background: rgba(139,92,246,0.08);
+        }
+
+        h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            max-width: 900px;
+        }
+
+        h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            margin-top: 30px;
+            max-width: 650px;
+            color: #a1a1aa;
+            font-size: 18px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #8b5cf6;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #7c3aed;
+        }
+
+        .btn-secondary {
+            border: 1px solid #333;
+            color: #ccc;
+        }
+
+        .btn-secondary:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: #888;
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #c4b5fd;
+        }
+
+        /* TECHNOLOGIES */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 16px;
+            border: 1px solid #29292f;
+            border-radius: 8px;
+            color: #bbb;
+            background: #101014;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: #8b5cf6;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            padding: 30px;
+            background: #101014;
+            border: 1px solid #222228;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-6px);
+            border-color: #6d28d9;
+        }
+
+        .project-number {
+            color: #8b5cf6;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #c4b5fd;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .contact h2 {
+            font-size: clamp(35px, 6vw, 60px);
+            letter-spacing: -2px;
+        }
+
+        .contact p {
+            color: #888;
+            max-width: 550px;
+            margin: 20px auto 30px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            border: 1px solid #29292f;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #bbb;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            color: white;
+            border-color: #8b5cf6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #1c1c22;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 750px) {
+
+            .menu {
+                display: none;
+            }
+
+            .about,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="container nav-content">
+
+            <div class="logo">
+                Jessica<span>.</span>
+            </div>
+
+            <ul class="menu">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="tag">
+                ✦ Tecnologia • IA • Automação
+            </div>
+
+            <h1>
+                Olá, eu sou<br>
+                <span>Jessica Monteiro.</span>
+            </h1>
+
+            <p>
+                Desenvolvedora em formação, apaixonada por tecnologia,
+                Inteligência Artificial e automação. Transformando ideias
+                em soluções digitais.
+            </p>
+
+            <div class="buttons">
+
+                <a class="btn btn-primary" href="#projetos">
+                    Ver meus projetos
+                </a>
+
+                <a class="btn btn-secondary"
+                   href="https://github.com/jessicamchagas"
+                   target="_blank">
+                    GitHub →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Sobre mim
+            </h2>
+
+            <p class="section-description">
+                Um pouco sobre quem eu sou e o que estou construindo.
+            </p>
+
+            <div class="about">
+
+                <div class="about-text">
+
+                    <p>
+                        Sou <span class="highlight">Jessica Monteiro</span>,
+                        apaixonada pelo universo da tecnologia e pelas
+                        possibilidades que a Inteligência Artificial oferece.
+                    </p>
+
+                    <p>
+                        Meu foco está em desenvolvimento, automação,
+                        soluções com IA e criação de projetos que possam
+                        resolver problemas reais.
+                    </p>
+
+                    <p>
+                        Estou construindo minha trajetória na tecnologia
+                        através de projetos práticos, aprendizado contínuo
+                        e muita curiosidade.
+                    </p>
+
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom:20px;">
+                        Atualmente estudando
+                    </h3>
+
+                    <div class="skills">
+
+                        <div class="skill">Python</div>
+                        <div class="skill">IA</div>
+                        <div class="skill">Automação</div>
+                        <div class="skill">Git</div>
+                        <div class="skill">GitHub</div>
+                        <div class="skill">APIs</div>
+                        <div class="skill">AWS</div>
+                        <div class="skill">Cybersecurity</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TECNOLOGIAS -->
+
+    <section id="tecnologias">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Tecnologias
+            </h2>
+
+            <p class="section-description">
+                Ferramentas e tecnologias que fazem parte da minha jornada.
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Python</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Git</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">AWS</div>
+                <div class="skill">APIs</div>
+                <div class="skill">Linux</div>
+                <div class="skill">Docker</div>
+                <div class="skill">Inteligência Artificial</div>
+                <div class="skill">Automação</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJETOS -->
+
+    <section id="projetos">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Projetos
+            </h2>
+
+            <p class="section-description">
+                Alguns dos projetos que estou desenvolvendo.
+            </p>
+
+            <div class="projects">
+
+                <div class="project">
+
+                    <div class="project-number">
+                        01 / CYBERSECURITY
+                    </div>
+
+                    <h3>SentinelSOC</h3>
+
+                    <p>
+                        Projeto voltado para gerenciamento de incidentes
+                        e organização de informações relacionadas à
+                        segurança da informação.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/soujesk/SentinelSOC"
+                        target="_blank">
+                        Ver projeto →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        02 / IA & AUTOMAÇÃO
+                    </div>
+
+                    <h3>Projetos com IA</h3>
+
+                    <p>
+                        Experimentos e soluções utilizando Inteligência
+                        Artificial para automatizar tarefas e criar
+                        processos mais inteligentes.
+                    </p>
+
+                    <span class="project-link">
+                        Em desenvolvimento →
+                    </span>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        03 / PYTHON
+                    </div>
+
+                    <h3>Automação</h3>
+
+                    <p>
+                        Projetos desenvolvidos em Python com foco em
+                        automação de tarefas e produtividade.
+                    </p>
+
+                    <span class="project-link">
+                        Em desenvolvimento →
+                    </span>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        04 / PORTFÓLIO
+                    </div>
+
+                    <h3>Meu Portfólio</h3>
+
+                    <p>
+                        Este próprio site é um projeto desenvolvido para
+                        apresentar minha evolução e meus trabalhos.
+                    </p>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/jessicamchagas"
+                        target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTATO -->
+
+    <section id="contato" class="contact">
+
+        <div class="container">
+
+            <h2>
+                Vamos criar algo incrível?
+            </h2>
+
+            <p>
+                Estou sempre aberta a aprender, criar projetos e
+                explorar novas oportunidades na tecnologia.
+            </p>
+
+            <div class="socials">
+
+                <a
+                    class="social"
+                    href="https://github.com/jessicamchagas"
+                    target="_blank">
+                    GitHub
+                </a>
+
+                <a
+                    class="social"
+                    href="#"
+                    target="_blank">
+                    LinkedIn
+                </a>
+
+                <a
+                    class="social"
+                    href="mailto:SEUEMAIL@exemplo.com">
+                    E-mail
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Jessica Monteiro.
+            Desenvolvido com tecnologia e curiosidade.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
