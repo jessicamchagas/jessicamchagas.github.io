@@ -1,114 +1,1893 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfólio profissional de Jessica Monteiro — Tecnologia, IA e Automação.">
-<title>Jessica Monteiro | Tecnologia, IA & Automação</title>
-<style>
-:root{--bg:#03050d;--panel:#0b0e19;--text:#f7f7fb;--muted:#999ba9;--purple:#9b4dff;--purple2:#6e2cff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 72% 18%,#35106b44,transparent 30%),var(--bg);color:var(--text);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-3;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(#000,transparent 85%)}
-.container{width:min(1120px,90%);margin:auto}
-nav{height:68px;position:fixed;top:0;width:100%;z-index:10;background:#03050dcc;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff10}
-.nav{height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;font-size:21px}.logo span{color:var(--purple)}
-.menu{display:flex;gap:30px;list-style:none}.menu a{color:#aaa;font-size:13px;text-decoration:none;transition:.3s}.menu a:hover{color:#fff}
-.hero{min-height:650px;padding-top:68px;display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px}
-.tag{display:inline-block;padding:7px 14px;border:1px solid #9b4dffaa;border-radius:30px;color:#c9aaff;background:#9b4dff10;font-size:12px;animation:up .8s both}
-h1{font-size:clamp(48px,6vw,76px);line-height:.98;letter-spacing:-4px;margin-top:22px;animation:up .9s .15s both}
-h1 span{color:var(--purple);text-shadow:0 0 30px #9b4dff33}
-.line{width:250px;height:2px;background:linear-gradient(90deg,var(--purple),transparent);margin:20px 0;animation:line 1s .8s both}
-.hero p{max-width:600px;color:var(--muted);font-size:15px;animation:up .9s .35s both}
-.buttons{display:flex;gap:12px;margin-top:28px;animation:up .9s .5s both}
-.btn{padding:13px 18px;border-radius:7px;text-decoration:none;font-size:13px;font-weight:700;border:1px solid #ffffff20;transition:.3s}
-.primary{background:linear-gradient(135deg,#9b3cff,#7130ff);box-shadow:0 12px 35px #7130ff33}.secondary{background:#ffffff03;color:#ddd}
-.btn:hover{transform:translateY(-4px);box-shadow:0 12px 30px #9b4dff22}
-.hero-art{height:500px;display:flex;align-items:center;justify-content:center;position:relative;animation:art 1s .3s both}
-.portrait{width:365px;height:445px;object-fit:cover;object-position:center 31%;filter:grayscale(1) contrast(1.05);border:1px solid #a55affcc;border-radius:48%;padding:5px;box-shadow:0 0 35px #8b3dff33}
-.orbit{position:absolute;width:520px;height:135px;border:1px solid #a55affaa;border-radius:50%;transform:rotate(-17deg);animation:spin 8s linear infinite}
-.tech{position:absolute;width:48px;height:48px;border:1px solid #a55affaa;border-radius:10px;background:#080817e8;display:grid;place-items:center;color:#cda9ff;font-weight:700;box-shadow:0 0 22px #8b3dff22;animation:float 4s ease-in-out infinite}
-.t1{left:5%;top:18%}.t2{left:9%;bottom:16%;animation-delay:1s}.t3{right:4%;top:56%;animation-delay:1.5s}
-section{padding:80px 0;border-top:1px solid #ffffff08}
-.kicker{color:#b76cff;text-transform:uppercase;font-size:10px;letter-spacing:1px;font-weight:700}.title{font-size:29px;margin-top:5px}.desc{color:#898b98;font-size:13px;margin-top:10px}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:45px;margin-top:30px}.about p{color:#a4a5b0;font-size:13px;margin-bottom:14px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card,.project,.skill{background:linear-gradient(145deg,#111522,#070914);border:1px solid #ffffff10;border-radius:9px;transition:.35s}
-.card{padding:20px;min-height:155px}.card:hover,.project:hover{transform:translateY(-7px);border-color:#9b4dff77;box-shadow:0 18px 40px #0008}.icon{font-size:22px;color:#c080ff;margin-bottom:14px}.card h3{font-size:15px}.card p{font-size:11px;margin-top:5px;color:#818390}
-.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.skill{padding:9px 13px;color:#d0d0d8;font-size:12px}.skill:hover{border-color:var(--purple);transform:translateY(-4px)}
-.projects{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:30px}.project{padding:18px;min-height:215px}.num{font-size:9px;color:#b76cff}.project h3{font-size:16px;margin:12px 0 7px}.project p{font-size:11px;color:#858692;min-height:70px}.project a{font-size:11px;color:#c08aff;text-decoration:none}
-.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:35px;align-items:center}.contact h2{font-size:29px}.contact p{color:#888a96;font-size:12px;margin-top:8px}.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.social{padding:15px;border:1px solid #ffffff12;border-radius:8px;color:#ddd;text-decoration:none;font-size:12px;transition:.3s}.social:hover{border-color:var(--purple);transform:translateY(-4px)}
-footer{border-top:1px solid #ffffff0d;padding:22px 0;color:#70717d;font-size:11px}.foot{display:flex;justify-content:space-between}
-.reveal{opacity:0;transform:translateY(35px);transition:.8s}.reveal.show{opacity:1;transform:none}
-.stars span{position:fixed;width:2px;height:2px;background:#a75cff;border-radius:50%;box-shadow:0 0 10px #8b42ff;z-index:-1;animation:twinkle 3s infinite}
-@keyframes up{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
-@keyframes art{from{opacity:0;transform:translateX(35px)}to{opacity:1;transform:none}}
-@keyframes line{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
-@keyframes spin{to{transform:rotate(343deg)}}@keyframes float{50%{transform:translateY(-10px)}}@keyframes twinkle{50%{opacity:1;transform:scale(1.8)}}
-@media(max-width:900px){.hero-grid,.about,.contact{grid-template-columns:1fr}.hero-art{height:440px}.projects{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.menu{display:none}h1{font-size:48px}.portrait{width:290px;height:360px}.orbit{width:390px;height:105px}.projects,.cards,.socials{grid-template-columns:1fr}.hero{min-height:auto;padding-bottom:50px}.hero-art{height:400px}}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jessica Monteiro | Tecnologia, IA & Automação</title>
+
+    <meta name="description"
+        content="Portfólio de Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação e Desenvolvimento.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050507;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           FUNDO
+        ========================================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -5;
+
+            background:
+                radial-gradient(
+                    circle at 75% 20%,
+                    rgba(130, 40, 255, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 20% 70%,
+                    rgba(91, 27, 170, 0.12),
+                    transparent 35%
+                ),
+                #050507;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -4;
+
+            opacity: 0.22;
+
+            background-image:
+                linear-gradient(
+                    rgba(150, 70, 255, 0.08) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(150, 70, 255, 0.08) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+        }
+
+        /* =========================================================
+           PARTÍCULAS
+        ========================================================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0.45;
+
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+
+            from {
+                transform: translateY(110vh);
+            }
+
+            to {
+                transform: translateY(-10vh);
+            }
+
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(5, 5, 7, 0.72);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(170, 80, 255, 0.12);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+
+            color: #ffffff;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                0 0 12px rgba(168, 76, 255, 0.8);
+        }
+
+        .logo span {
+            color: #a855f7;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: #b8b8c2;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+
+            text-shadow:
+                0 0 12px rgba(168, 85, 247, 0.8);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: #a855f7;
+
+            box-shadow:
+                0 0 10px #a855f7;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 50px;
+
+            padding: 120px 8% 80px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+
+            animation: heroText 1s ease forwards;
+        }
+
+        @keyframes heroText {
+
+            from {
+                opacity: 0;
+                transform: translateX(-45px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            border-radius: 100px;
+
+            color: #c084fc;
+
+            font-size: 12px;
+            letter-spacing: 1.5px;
+
+            background: rgba(168, 85, 247, 0.06);
+
+            box-shadow:
+                0 0 25px rgba(168, 85, 247, 0.08);
+        }
+
+        .hero-tag::before {
+            content: "";
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #a855f7;
+
+            box-shadow:
+                0 0 12px #a855f7;
+
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.7);
+                opacity: 0.5;
+            }
+
+        }
+
+        .hero h1 {
+            margin-top: 28px;
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: clamp(42px, 6vw, 76px);
+
+            line-height: 1.05;
+
+            letter-spacing: -3px;
+
+            font-weight: 700;
+        }
+
+        .hero h1 .purple {
+            color: #a855f7;
+
+            text-shadow:
+                0 0 20px rgba(168, 85, 247, 0.45);
+        }
+
+        .title-line {
+            width: 90px;
+            height: 4px;
+
+            margin: 25px 0;
+
+            border-radius: 10px;
+
+            background: #a855f7;
+
+            box-shadow:
+                0 0 18px rgba(168, 85, 247, 0.8);
+
+            animation: lineGrow 1.4s ease forwards;
+        }
+
+        @keyframes lineGrow {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 90px;
+            }
+
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            color: #a7a7b2;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 24px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #8b35d9;
+
+            box-shadow:
+                0 0 25px rgba(139, 53, 217, 0.28);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+
+            background: #9d46ed;
+
+            box-shadow:
+                0 0 35px rgba(168, 85, 247, 0.55);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(168, 85, 247, 0.5);
+
+            color: #ffffff;
+
+            background: rgba(168, 85, 247, 0.03);
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-4px);
+
+            background: rgba(168, 85, 247, 0.12);
+
+            box-shadow:
+                0 0 25px rgba(168, 85, 247, 0.25);
+        }
+
+        /* =========================================================
+           FOTO
+        ========================================================= */
+
+        .hero-image {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 560px;
+
+            animation: photoEntrance 1.2s ease forwards;
+        }
+
+        @keyframes photoEntrance {
+
+            from {
+                opacity: 0;
+                transform: translateX(50px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+
+        }
+
+        .photo-glow {
+            position: absolute;
+
+            width: 390px;
+            height: 520px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(168, 85, 247, 0.28),
+                    transparent 65%
+                );
+
+            filter: blur(30px);
+
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.75;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+
+        }
+
+        .photo-frame {
+            position: relative;
+
+            width: min(380px, 80vw);
+            height: 510px;
+
+            border-radius: 50%;
+
+            padding: 5px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(196, 112, 255, 0.9),
+                    rgba(87, 27, 144, 0.2),
+                    rgba(168, 85, 247, 0.9)
+                );
+
+            box-shadow:
+                0 0 30px rgba(168, 85, 247, 0.25),
+                inset 0 0 30px rgba(168, 85, 247, 0.08);
+
+            animation: photoFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes photoFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+        .photo-frame::before {
+            content: "";
+
+            position: absolute;
+            inset: -18px;
+
+            border: 1px solid rgba(168, 85, 247, 0.25);
+
+            border-radius: 50%;
+
+            animation: rotateRing 18s linear infinite;
+        }
+
+        @keyframes rotateRing {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            border-radius: 50%;
+
+            filter: grayscale(100%) contrast(1.05);
+
+            display: block;
+        }
+
+        /* =========================================================
+           ELEMENTOS FLUTUANTES
+        ========================================================= */
+
+        .tech-orb {
+            position: absolute;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 54px;
+            height: 54px;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(168, 85, 247, 0.5);
+
+            background: rgba(15, 10, 20, 0.75);
+
+            backdrop-filter: blur(10px);
+
+            color: #c084fc;
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 13px;
+
+            box-shadow:
+                0 0 20px rgba(168, 85, 247, 0.16);
+        }
+
+        .orb-one {
+            top: 17%;
+            left: 8%;
+
+            animation: orbOne 5s ease-in-out infinite;
+        }
+
+        .orb-two {
+            right: 4%;
+            top: 35%;
+
+            animation: orbTwo 6s ease-in-out infinite;
+        }
+
+        .orb-three {
+            bottom: 17%;
+            left: 12%;
+
+            animation: orbThree 5.5s ease-in-out infinite;
+        }
+
+        @keyframes orbOne {
+
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(5deg);
+            }
+
+        }
+
+        @keyframes orbTwo {
+
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(12px, -15px);
+            }
+
+        }
+
+        @keyframes orbThree {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(14px);
+            }
+
+        }
+
+        /* =========================================================
+           SEÇÕES
+        ========================================================= */
+
+        section {
+            padding: 110px 8%;
+
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 700px;
+
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            color: #a855f7;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: clamp(30px, 4vw, 48px);
+
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            color: #92929e;
+
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           SOBRE
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 35px;
+        }
+
+        .about-text {
+            color: #aaaab5;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        .info-cards {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+        .info-card {
+            padding: 28px;
+
+            border: 1px solid rgba(168, 85, 247, 0.15);
+
+            background: rgba(255,255,255,0.015);
+
+            border-radius: 14px;
+
+            transition: 0.35s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(168, 85, 247, 0.5);
+
+            box-shadow:
+                0 10px 40px rgba(168, 85, 247, 0.09);
+        }
+
+        .info-icon {
+            font-size: 25px;
+
+            margin-bottom: 18px;
+
+            color: #c084fc;
+        }
+
+        .info-card h3 {
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #81818c;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           TECNOLOGIAS
+        ========================================================= */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .skill {
+            padding: 30px 22px;
+
+            border: 1px solid rgba(168, 85, 247, 0.13);
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.025),
+                    rgba(168,85,247,0.025)
+                );
+
+            transition: 0.35s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(168, 85, 247, 0.45);
+
+            box-shadow:
+                0 15px 40px rgba(168, 85, 247, 0.08);
+        }
+
+        .skill-icon {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 22px;
+
+            color: #b56cff;
+
+            margin-bottom: 18px;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+
+            font-size: 16px;
+        }
+
+        .skill p {
+            color: #7e7e89;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           PROJETOS
+        ========================================================= */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .project {
+            position: relative;
+
+            padding: 30px;
+
+            min-height: 260px;
+
+            border-radius: 16px;
+
+            border: 1px solid rgba(168, 85, 247, 0.13);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.025),
+                    rgba(168,85,247,0.025)
+                );
+
+            overflow: hidden;
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .project::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            right: -100px;
+            top: -100px;
+
+            background: #a855f7;
+
+            opacity: 0.08;
+
+            filter: blur(60px);
+
+            border-radius: 50%;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+
+            border-color: rgba(168, 85, 247, 0.5);
+
+            box-shadow:
+                0 20px 60px rgba(168, 85, 247, 0.1);
+        }
+
+        .project-number {
+            color: #a855f7;
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 25px;
+        }
+
+        .project h3 {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 21px;
+
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            color: #858590;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+            max-width: 500px;
+        }
+
+        .project-link {
+            display: inline-flex;
+
+            margin-top: 25px;
+
+            color: #c084fc;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+
+            transform: translateX(5px);
+        }
+
+        /* =========================================================
+           CONTATO
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+
+            padding: 70px 50px;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(168, 85, 247, 0.22);
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(168, 85, 247, 0.12),
+                    rgba(168, 85, 247, 0.02) 45%,
+                    transparent 70%
+                );
+        }
+
+        .contact-box h2 {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: clamp(30px, 5vw, 52px);
+
+            margin-bottom: 18px;
+        }
+
+        .contact-box p {
+            color: #9696a1;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 30px 8%;
+
+            border-top: 1px solid rgba(168, 85, 247, 0.1);
+
+            text-align: center;
+
+            color: #656570;
+
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #a855f7;
+        }
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding-top: 130px;
+            }
+
+            .hero-content {
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .title-line {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-image {
+                min-height: 520px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .photo-frame {
+                width: 290px;
+                height: 410px;
+            }
+
+            .photo-glow {
+                width: 300px;
+                height: 420px;
+            }
+
+            .orb-one {
+                left: 0;
+            }
+
+            .orb-two {
+                right: 0;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 50px 25px;
+            }
+
+        }
+
+        /* =========================================================
+           ACESSIBILIDADE
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+        }
+
+    </style>
 </head>
+
 <body>
-<div class="stars">
-<span style="left:8%;top:20%"></span><span style="left:22%;top:12%"></span><span style="left:40%;top:18%"></span>
-<span style="left:58%;top:11%"></span><span style="left:78%;top:20%"></span><span style="left:92%;top:30%"></span>
-<span style="left:17%;top:72%"></span><span style="left:68%;top:75%"></span>
-</div>
 
-<nav><div class="container nav"><a class="logo" href="#inicio">Jessica<span>.</span></a><ul class="menu">
-<li><a href="#sobre">Sobre</a></li><li><a href="#tecnologias">Tecnologias</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#contato">Contato</a></li>
-</ul></div></nav>
+    <!-- =========================================================
+         PARTÍCULAS
+    ========================================================= -->
 
-<main>
-<section class="hero" id="inicio"><div class="container hero-grid">
-<div>
-<div class="tag">✦ Tecnologia · IA · Automação</div>
-<h1>Olá, eu sou<br><span>Jessica Monteiro.</span></h1>
-<div class="line"></div>
-<p>Desenvolvedora em formação, apaixonada por tecnologia, Inteligência Artificial e automação. Transformando ideias em soluções digitais.</p>
-<div class="buttons">
-<a class="btn primary" href="#projetos">Ver meus projetos →</a>
-<a class="btn secondary" href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio" target="_blank">◉ GitHub →</a>
-</div>
-</div>
-<div class="hero-art">
-<div class="orbit"></div>
-<img class="portrait" src="jessica-foto.png" alt="Jessica Monteiro">
-<div class="tech t1">&lt;/&gt;</div><div class="tech t2">AI</div><div class="tech t3">⌘</div>
-</div>
-</div></section>
+    <div class="particles" id="particles"></div>
 
-<section id="sobre"><div class="container reveal">
-<div class="kicker">Sobre mim</div><h2 class="title">Sobre mim</h2>
-<div class="about"><div><p>Sou Jessica Monteiro, apaixonada pelo universo da tecnologia e pelas possibilidades que a Inteligência Artificial oferece.</p><p>Meu foco está em desenvolvimento, automação, soluções com IA e criação de projetos que possam resolver problemas reais.</p><p>Estou construindo minha trajetória na tecnologia através de projetos práticos, aprendizado contínuo e muita curiosidade.</p></div>
-<div class="cards"><article class="card"><div class="icon">🚀</div><h3>Foco</h3><p>Soluções eficientes e inteligentes.</p></article><article class="card"><div class="icon">✦</div><h3>Aprendizado</h3><p>Evolução constante em novas tecnologias.</p></article><article class="card"><div class="icon">&lt;/&gt;</div><h3>Propósito</h3><p>Transformar ideias em impacto real.</p></article></div></div>
-</div></section>
 
-<section id="tecnologias"><div class="container reveal"><div class="kicker">Tecnologias</div><h2 class="title">Tecnologias</h2><p class="desc">Ferramentas e tecnologias que fazem parte da minha jornada.</p>
-<div class="skills"><div class="skill">🐍 Python</div><div class="skill">▣ HTML</div><div class="skill">◈ CSS</div><div class="skill">JS JavaScript</div><div class="skill">◆ Git</div><div class="skill">◉ GitHub</div><div class="skill">AWS</div><div class="skill">⌘ APIs</div><div class="skill">Linux</div><div class="skill">Docker</div><div class="skill">AI Inteligência Artificial</div><div class="skill">⚙ Automação</div></div>
-</div></section>
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
 
-<section id="projetos"><div class="container reveal"><div class="kicker">Projetos</div><h2 class="title">Projetos</h2><p class="desc">Alguns dos projetos que estou desenvolvendo.</p>
-<div class="projects">
-<article class="project"><div class="num">01 / CYBERSECURITY</div><h3>SentinelSOC</h3><p>Projeto voltado para gerenciamento de incidentes e organização de informações relacionadas à segurança da informação.</p><a href="https://github.com/soujesk/SentinelSOC" target="_blank">Ver projeto →</a></article>
-<article class="project"><div class="num">02 / IA & AUTOMAÇÃO</div><h3>Projetos com IA</h3><p>Experimentos e soluções utilizando Inteligência Artificial para automatizar tarefas e criar processos mais inteligentes.</p><span class="num">Em desenvolvimento →</span></article>
-<article class="project"><div class="num">03 / PYTHON</div><h3>Automação</h3><p>Projetos desenvolvidos em Python com foco em automação de tarefas e produtividade.</p><span class="num">Em desenvolvimento →</span></article>
-<article class="project"><div class="num">04 / PORTFÓLIO</div><h3>Meu Portfólio</h3><p>Este próprio site é um projeto desenvolvido para apresentar minha evolução e meus trabalhos.</p><a href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio" target="_blank">GitHub →</a></article>
-</div></div></section>
+    <nav>
 
-<section id="contato"><div class="container contact reveal"><div><div class="kicker">Contato</div><h2>Vamos criar algo incrível?</h2><p>Estou sempre aberta a aprender, criar projetos e explorar novas oportunidades na tecnologia.</p></div>
-<div class="socials"><a class="social" href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio" target="_blank">◉ GitHub →</a><a class="social" href="#">in LinkedIn →</a><a class="social" href="mailto:SEUEMAIL@exemplo.com">✉ E-mail →</a></div></div></section>
-</main>
+        <a href="#inicio" class="logo">
+            JESSICA<span>.</span>
+        </a>
 
-<footer><div class="container foot"><div>Jessica<span style="color:#9b4dff">.</span></div><div>© 2026 Jessica Monteiro · Tecnologia, IA e Automação</div></div></footer>
+        <ul class="nav-links">
 
-<script>
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
-</script>
+            <li>
+                <a href="#inicio">Início</a>
+            </li>
+
+            <li>
+                <a href="#sobre">Sobre</a>
+            </li>
+
+            <li>
+                <a href="#tecnologias">Tecnologias</a>
+            </li>
+
+            <li>
+                <a href="#projetos">Projetos</a>
+            </li>
+
+            <li>
+                <a href="#contato">Contato</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    Tecnologia • IA • Automação
+                </div>
+
+                <h1>
+                    Olá, eu sou
+                    <span class="purple">
+                        Jessica Monteiro.
+                    </span>
+                </h1>
+
+                <div class="title-line"></div>
+
+                <p class="hero-description">
+
+                    Desenvolvedora em formação apaixonada por
+                    tecnologia, Inteligência Artificial e automação.
+                    Transformo ideias em soluções digitais modernas,
+                    funcionais e inteligentes.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projetos"
+                        class="btn btn-primary"
+                    >
+                        Ver meus projetos →
+                    </a>
+
+                    <a
+                        href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-outline"
+                    >
+                        GitHub ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOTO -->
+
+            <div class="hero-image">
+
+                <div class="photo-glow"></div>
+
+                <div class="tech-orb orb-one">
+                    &lt;/&gt;
+                </div>
+
+                <div class="tech-orb orb-two">
+                    AI
+                </div>
+
+                <div class="tech-orb orb-three">
+                    { }
+                </div>
+
+                <div class="photo-frame">
+
+                    <img
+                        src="jessica-foto.png"
+                        alt="Foto de Jessica"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SOBRE
+        ====================================================== -->
+
+        <section id="sobre">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    01 — Sobre mim
+                </div>
+
+                <h2 class="section-title">
+                    Tecnologia com propósito.
+                </h2>
+
+                <p class="section-description">
+                    Uma combinação entre criatividade, tecnologia
+                    e curiosidade para construir soluções cada vez
+                    mais inteligentes.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-text reveal">
+
+                    <p>
+                        Meu interesse por tecnologia vai muito além
+                        de simplesmente escrever código. Gosto de
+                        entender problemas, encontrar soluções e
+                        transformar processos complexos em algo
+                        simples e eficiente.
+                    </p>
+
+                    <p>
+                        Atualmente venho desenvolvendo minhas
+                        habilidades em programação, Inteligência
+                        Artificial, automação, sistemas e ferramentas
+                        modernas de tecnologia.
+                    </p>
+
+                    <p>
+                        Meu objetivo é continuar evoluindo e construir
+                        projetos que unam tecnologia, criatividade e
+                        impacto real.
+                    </p>
+
+                </div>
+
+
+                <div class="info-cards">
+
+                    <div class="info-card reveal">
+
+                        <div class="info-icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            Inteligência Artificial
+                        </h3>
+
+                        <p>
+                            Explorando aplicações práticas de IA
+                            para criação e automação.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card reveal">
+
+                        <div class="info-icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Automação
+                        </h3>
+
+                        <p>
+                            Criando processos mais rápidos,
+                            inteligentes e eficientes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card reveal">
+
+                        <div class="info-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3>
+                            Desenvolvimento
+                        </h3>
+
+                        <p>
+                            Desenvolvendo soluções utilizando
+                            programação e tecnologias modernas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card reveal">
+
+                        <div class="info-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Aprendizado contínuo
+                        </h3>
+
+                        <p>
+                            Sempre estudando novas ferramentas,
+                            tecnologias e possibilidades.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TECNOLOGIAS
+        ====================================================== -->
+
+        <section id="tecnologias">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    02 — Tecnologias
+                </div>
+
+                <h2 class="section-title">
+                    O que estou explorando.
+                </h2>
+
+                <p class="section-description">
+                    Tecnologias e áreas que fazem parte da minha
+                    jornada de desenvolvimento.
+                </p>
+
+            </div>
+
+
+            <div class="skills">
+
+                <div class="skill reveal">
+
+                    <div class="skill-icon">
+                        &lt;/&gt;
+                    </div>
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de aplicações,
+                        automações e projetos com IA.
+                    </p>
+
+                </div>
+
+
+                <div class="skill reveal">
+
+                    <div class="skill-icon">
+                        AI
+                    </div>
+
+                    <h3>
+                        Inteligência Artificial
+                    </h3>
+
+                    <p>
+                        Utilização de IA para soluções,
+                        produtividade e automação.
+                    </p>
+
+                </div>
+
+
+                <div class="skill reveal">
+
+                    <div class="skill-icon">
+                        JS
+                    </div>
+
+                    <h3>
+                        JavaScript
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de interfaces e
+                        aplicações web interativas.
+                    </p>
+
+                </div>
+
+
+                <div class="skill reveal">
+
+                    <div class="skill-icon">
+                        AWS
+                    </div>
+
+                    <h3>
+                        Cloud
+                    </h3>
+
+                    <p>
+                        Estudos relacionados a cloud computing
+                        e serviços AWS.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROJETOS
+        ====================================================== -->
+
+        <section id="projetos">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    03 — Projetos
+                </div>
+
+                <h2 class="section-title">
+                    O que estou construindo.
+                </h2>
+
+                <p class="section-description">
+                    Alguns dos projetos que fazem parte da minha
+                    evolução profissional.
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <!-- SENTINELSOC -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
+                    <h3>
+                        SentinelSOC
+                    </h3>
+
+                    <p>
+                        Projeto voltado para gerenciamento de
+                        incidentes e operações relacionadas à
+                        segurança da informação.
+                    </p>
+
+                    <a
+                        href="https://github.com/soujesk/SentinelSOC"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        Ver no GitHub →
+                    </a>
+
+                </article>
+
+
+                <!-- IA -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
+                    <h3>
+                        Projetos com IA
+                    </h3>
+
+                    <p>
+                        Projetos experimentais utilizando
+                        Inteligência Artificial para criação,
+                        produtividade e automação.
+                    </p>
+
+                    <span class="project-link">
+                        Em desenvolvimento
+                    </span>
+
+                </article>
+
+
+                <!-- AUTOMAÇÃO -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
+                    <h3>
+                        Automação
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de soluções para
+                        automatizar tarefas e processos
+                        utilizando tecnologia.
+                    </p>
+
+                    <span class="project-link">
+                        Em desenvolvimento
+                    </span>
+
+                </article>
+
+
+                <!-- PORTFÓLIO -->
+
+                <article class="project reveal">
+
+                    <div class="project-number">
+                        PROJECT 04
+                    </div>
+
+                    <h3>
+                        Meu Portfólio
+                    </h3>
+
+                    <p>
+                        Este próprio projeto foi desenvolvido
+                        para apresentar minha trajetória,
+                        habilidades e projetos.
+                    </p>
+
+                    <a
+                        href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        Ver código →
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTATO
+        ====================================================== -->
+
+        <section id="contato">
+
+            <div class="contact-box reveal">
+
+                <div class="section-label">
+                    04 — Contato
+                </div>
+
+                <h2>
+                    Vamos criar algo?
+                </h2>
+
+                <p>
+                    Estou sempre aberta a novas ideias,
+                    projetos e oportunidades.
+                </p>
+
+
+                <div class="contact-links">
+
+                    <a
+                        href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-outline"
+                    >
+                        GitHub
+                    </a>
+
+                    <a
+                        href="#"
+                        class="btn btn-outline"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <a
+                        href="mailto:SEUEMAIL@exemplo.com"
+                        class="btn btn-primary"
+                    >
+                        E-mail
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        © 2026 Jessica Monteiro.
+        Desenvolvido com <span>♥</span> e tecnologia.
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           PARTÍCULAS
+        ====================================================== */
+
+        const particlesContainer =
+            document.getElementById("particles");
+
+        for (let i = 0; i < 45; i++) {
+
+            const particle =
+                document.createElement("span");
+
+            particle.classList.add("particle");
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+            particle.style.animationDuration =
+                (Math.random() * 15 + 10) + "s";
+
+            particle.style.animationDelay =
+                -(Math.random() * 20) + "s";
+
+            particle.style.opacity =
+                Math.random() * 0.6;
+
+            particlesContainer.appendChild(
+                particle
+            );
+
+        }
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const reveals =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        reveals.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+        /* =====================================================
+           EFEITO SUAVE NO MOUSE
+        ====================================================== */
+
+        document.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const x =
+                    (event.clientX / window.innerWidth - 0.5) * 10;
+
+                const y =
+                    (event.clientY / window.innerHeight - 0.5) * 10;
+
+                const photo =
+                    document.querySelector(".photo-frame");
+
+                if (photo && window.innerWidth > 900) {
+
+                    photo.style.transform =
+                        `translate(${x}px, ${y}px)`;
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           RESET DO EFEITO AO SAIR DO MOUSE
+        ====================================================== */
+
+        document.addEventListener(
+            "mouseleave",
+            () => {
+
+                const photo =
+                    document.querySelector(".photo-frame");
+
+                if (photo) {
+
+                    photo.style.transform =
+                        "";
+
+                }
+
+            }
+        );
+
+    </script>
+
 </body>
 </html>
