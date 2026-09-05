@@ -10,6 +10,11 @@
           content="Portfólio profissional de Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação e Desenvolvimento.">
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -25,6 +30,12 @@
             background: #08080c;
             color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::selection {
+            background: #8b5cf6;
+            color: #ffffff;
         }
 
         a {
@@ -37,17 +48,189 @@
             margin: auto;
         }
 
-        /* NAVBAR */
+
+        /* =====================================================
+           FUNDO ANIMADO
+        ===================================================== */
+
+        .background-glow {
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: #7c3aed;
+            filter: blur(180px);
+            opacity: 0.10;
+            pointer-events: none;
+            z-index: -2;
+            animation: moveGlow 12s ease-in-out infinite alternate;
+        }
+
+        .glow-one {
+            top: 5%;
+            left: 10%;
+        }
+
+        .glow-two {
+            bottom: 5%;
+            right: 5%;
+            background: #4c1d95;
+            animation-delay: 3s;
+        }
+
+        @keyframes moveGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(100px, 60px) scale(1.15);
+            }
+
+            100% {
+                transform: translate(-60px, 100px) scale(0.95);
+            }
+        }
+
+
+        /* =====================================================
+           PARTÍCULAS
+        ===================================================== */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: floatParticle linear infinite;
+        }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(2) {
+            left: 25%;
+            top: 70%;
+            animation-duration: 16s;
+        }
+
+        .particle:nth-child(3) {
+            left: 40%;
+            top: 30%;
+            animation-duration: 14s;
+        }
+
+        .particle:nth-child(4) {
+            left: 55%;
+            top: 80%;
+            animation-duration: 18s;
+        }
+
+        .particle:nth-child(5) {
+            left: 70%;
+            top: 25%;
+            animation-duration: 13s;
+        }
+
+        .particle:nth-child(6) {
+            left: 85%;
+            top: 65%;
+            animation-duration: 17s;
+        }
+
+        .particle:nth-child(7) {
+            left: 15%;
+            top: 90%;
+            animation-duration: 15s;
+        }
+
+        .particle:nth-child(8) {
+            left: 92%;
+            top: 15%;
+            animation-duration: 19s;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: translateY(-120px) scale(1.5);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-250px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           CURSOR GLOW
+        ===================================================== */
+
+        .cursor-glow {
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            filter: blur(90px);
+            opacity: 0.08;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: left 0.15s ease, top 0.15s ease;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             padding: 20px 0;
-            background: rgba(8, 8, 12, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(8, 8, 12, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.06);
+            animation: navAppear 1s ease forwards;
+        }
+
+        @keyframes navAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .nav-content {
@@ -60,10 +243,26 @@
             font-size: 22px;
             font-weight: bold;
             letter-spacing: -1px;
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .logo span {
             color: #8b5cf6;
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
 
         .menu {
@@ -76,13 +275,32 @@
             color: #aaa;
             transition: 0.3s;
             font-size: 14px;
+            position: relative;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background: #8b5cf6;
+            transition: 0.3s;
         }
 
         .menu a:hover {
             color: #fff;
         }
 
-        /* HERO */
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
 
         .hero {
             min-height: 100vh;
@@ -99,10 +317,23 @@
             height: 500px;
             background: #7c3aed;
             filter: blur(180px);
-            opacity: 0.18;
+            opacity: 0.16;
             top: 10%;
             left: 50%;
             transform: translateX(-50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% {
+                opacity: 0.10;
+                transform: translateX(-50%) scale(0.9);
+            }
+
+            100% {
+                opacity: 0.20;
+                transform: translateX(-50%) scale(1.15);
+            }
         }
 
         .hero-content {
@@ -119,6 +350,20 @@
             font-size: 13px;
             margin-bottom: 25px;
             background: rgba(139,92,246,0.08);
+
+            animation:
+                fadeUp 0.8s ease forwards,
+                tagPulse 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes tagPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(139,92,246,0);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(139,92,246,0.15);
+            }
         }
 
         h1 {
@@ -126,10 +371,33 @@
             line-height: 0.95;
             letter-spacing: -4px;
             max-width: 900px;
+
+            animation: fadeUp 1s ease 0.15s forwards;
+            opacity: 0;
         }
 
         h1 span {
             color: #8b5cf6;
+            position: relative;
+        }
+
+        h1 span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 2px;
+            background: #8b5cf6;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: lineReveal 1s ease 1.2s forwards;
+        }
+
+        @keyframes lineReveal {
+            to {
+                transform: scaleX(1);
+            }
         }
 
         .hero p {
@@ -137,13 +405,24 @@
             max-width: 650px;
             color: #a1a1aa;
             font-size: 18px;
+
+            animation: fadeUp 1s ease 0.35s forwards;
+            opacity: 0;
         }
+
+
+        /* =====================================================
+           BOTÕES
+        ===================================================== */
 
         .buttons {
             display: flex;
             gap: 15px;
             margin-top: 35px;
             flex-wrap: wrap;
+
+            animation: fadeUp 1s ease 0.5s forwards;
+            opacity: 0;
         }
 
         .btn {
@@ -152,15 +431,39 @@
             font-weight: bold;
             transition: 0.3s;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.15),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
             background: #8b5cf6;
+            box-shadow: 0 0 0 rgba(139,92,246,0);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             background: #7c3aed;
+            box-shadow: 0 10px 35px rgba(139,92,246,0.25);
         }
 
         .btn-secondary {
@@ -170,10 +473,32 @@
 
         .btn-secondary:hover {
             border-color: #8b5cf6;
-            transform: translateY(-3px);
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.12);
         }
 
-        /* SECTIONS */
+
+        /* =====================================================
+           ANIMAÇÃO DE ENTRADA
+        ===================================================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
 
         section {
             padding: 100px 0;
@@ -182,6 +507,18 @@
         .section-title {
             font-size: 38px;
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #8b5cf6;
+            margin-top: 10px;
+            border-radius: 5px;
         }
 
         .section-description {
@@ -190,7 +527,28 @@
             margin-bottom: 45px;
         }
 
-        /* ABOUT */
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
 
         .about {
             display: grid;
@@ -211,7 +569,10 @@
             color: #c4b5fd;
         }
 
-        /* TECHNOLOGIES */
+
+        /* =====================================================
+           TECHNOLOGIES
+        ===================================================== */
 
         .skills {
             display: flex;
@@ -226,15 +587,20 @@
             color: #bbb;
             background: #101014;
             transition: 0.3s;
+            position: relative;
         }
 
         .skill:hover {
             border-color: #8b5cf6;
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(139,92,246,0.10);
         }
 
-        /* PROJECTS */
+
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
 
         .projects {
             display: grid;
@@ -244,26 +610,50 @@
 
         .project {
             padding: 30px;
-            background: #101014;
+            background: rgba(16,16,20,0.8);
             border: 1px solid #222228;
             border-radius: 15px;
-            transition: 0.3s;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: #8b5cf6;
+            transition: 0.5s;
+        }
+
+        .project:hover::before {
+            left: 0;
         }
 
         .project:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             border-color: #6d28d9;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.35);
         }
 
         .project-number {
             color: #8b5cf6;
             font-size: 13px;
             margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .project h3 {
             font-size: 23px;
             margin-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .project:hover h3 {
+            color: #c4b5fd;
         }
 
         .project p {
@@ -275,24 +665,50 @@
             color: #c4b5fd;
             font-size: 14px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
-        /* CONTACT */
+        .project-link:hover {
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
 
         .contact {
             text-align: center;
             padding: 120px 0;
+            position: relative;
+        }
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            background: #7c3aed;
+            filter: blur(160px);
+            opacity: 0.10;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
         }
 
         .contact h2 {
             font-size: clamp(35px, 6vw, 60px);
             letter-spacing: -2px;
+            position: relative;
         }
 
         .contact p {
             color: #888;
             max-width: 550px;
             margin: 20px auto 30px;
+            position: relative;
         }
 
         .socials {
@@ -300,6 +716,7 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
+            position: relative;
         }
 
         .social {
@@ -308,14 +725,21 @@
             border-radius: 8px;
             color: #bbb;
             transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .social:hover {
             color: white;
             border-color: #8b5cf6;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.15);
         }
 
-        /* FOOTER */
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
         footer {
             padding: 30px 0;
@@ -325,7 +749,14 @@
             font-size: 13px;
         }
 
-        /* RESPONSIVO */
+        footer span {
+            color: #8b5cf6;
+        }
+
+
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
 
         @media (max-width: 750px) {
 
@@ -352,22 +783,78 @@
 
             .buttons {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
             }
 
             .btn {
                 width: 100%;
                 text-align: center;
             }
+
+            .project {
+                padding: 25px;
+            }
+
+            .background-glow {
+                width: 300px;
+                height: 300px;
+                filter: blur(120px);
+            }
+
+            .cursor-glow {
+                display: none;
+            }
         }
+
+
+        /* =====================================================
+           ACESSIBILIDADE
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVBAR -->
+    <!-- EFEITOS DE FUNDO -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
 
     <nav>
+
         <div class="container nav-content">
 
             <div class="logo">
@@ -375,17 +862,33 @@
             </div>
 
             <ul class="menu">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#tecnologias">Tecnologias</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
+
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+
+                <li>
+                    <a href="#tecnologias">Tecnologias</a>
+                </li>
+
+                <li>
+                    <a href="#projetos">Projetos</a>
+                </li>
+
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+
             </ul>
 
         </div>
+
     </nav>
 
 
-    <!-- HERO -->
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
 
     <section class="hero">
 
@@ -408,14 +911,17 @@
 
             <div class="buttons">
 
-                <a class="btn btn-primary" href="#projetos">
+                <a
+                    class="btn btn-primary"
+                    href="#projetos">
                     Ver meus projetos
                 </a>
 
-                <a class="btn btn-secondary"
-                   href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                <a
+                    class="btn btn-secondary"
+                    href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     💻 GitHub →
                 </a>
 
@@ -426,11 +932,13 @@
     </section>
 
 
-    <!-- SOBRE -->
+    <!-- =====================================================
+         SOBRE
+    ===================================================== -->
 
     <section id="sobre">
 
-        <div class="container">
+        <div class="container reveal">
 
             <h2 class="section-title">
                 Sobre mim
@@ -445,7 +953,10 @@
                 <div class="about-text">
 
                     <p>
-                        Sou <span class="highlight">Jessica Monteiro</span>,
+                        Sou
+                        <span class="highlight">
+                            Jessica Monteiro
+                        </span>,
                         apaixonada pelo universo da tecnologia e pelas
                         possibilidades que a Inteligência Artificial oferece.
                     </p>
@@ -464,6 +975,7 @@
 
                 </div>
 
+
                 <div>
 
                     <h3 style="margin-bottom:20px;">
@@ -472,14 +984,37 @@
 
                     <div class="skills">
 
-                        <div class="skill">Python</div>
-                        <div class="skill">IA</div>
-                        <div class="skill">Automação</div>
-                        <div class="skill">Git</div>
-                        <div class="skill">GitHub</div>
-                        <div class="skill">APIs</div>
-                        <div class="skill">AWS</div>
-                        <div class="skill">Cybersecurity</div>
+                        <div class="skill">
+                            Python
+                        </div>
+
+                        <div class="skill">
+                            IA
+                        </div>
+
+                        <div class="skill">
+                            Automação
+                        </div>
+
+                        <div class="skill">
+                            Git
+                        </div>
+
+                        <div class="skill">
+                            GitHub
+                        </div>
+
+                        <div class="skill">
+                            APIs
+                        </div>
+
+                        <div class="skill">
+                            AWS
+                        </div>
+
+                        <div class="skill">
+                            Cybersecurity
+                        </div>
 
                     </div>
 
@@ -492,11 +1027,13 @@
     </section>
 
 
-    <!-- TECNOLOGIAS -->
+    <!-- =====================================================
+         TECNOLOGIAS
+    ===================================================== -->
 
     <section id="tecnologias">
 
-        <div class="container">
+        <div class="container reveal">
 
             <h2 class="section-title">
                 Tecnologias
@@ -528,11 +1065,13 @@
     </section>
 
 
-    <!-- PROJETOS -->
+    <!-- =====================================================
+         PROJETOS
+    ===================================================== -->
 
     <section id="projetos">
 
-        <div class="container">
+        <div class="container reveal">
 
             <h2 class="section-title">
                 Projetos
@@ -544,13 +1083,18 @@
 
             <div class="projects">
 
+
+                <!-- PROJETO 01 -->
+
                 <div class="project">
 
                     <div class="project-number">
                         01 / CYBERSECURITY
                     </div>
 
-                    <h3>SentinelSOC</h3>
+                    <h3>
+                        SentinelSOC
+                    </h3>
 
                     <p>
                         Projeto voltado para gerenciamento de incidentes
@@ -569,13 +1113,17 @@
                 </div>
 
 
+                <!-- PROJETO 02 -->
+
                 <div class="project">
 
                     <div class="project-number">
                         02 / IA & AUTOMAÇÃO
                     </div>
 
-                    <h3>Projetos com IA</h3>
+                    <h3>
+                        Projetos com IA
+                    </h3>
 
                     <p>
                         Experimentos e soluções utilizando Inteligência
@@ -590,13 +1138,17 @@
                 </div>
 
 
+                <!-- PROJETO 03 -->
+
                 <div class="project">
 
                     <div class="project-number">
                         03 / PYTHON
                     </div>
 
-                    <h3>Automação</h3>
+                    <h3>
+                        Automação
+                    </h3>
 
                     <p>
                         Projetos desenvolvidos em Python com foco em
@@ -610,13 +1162,17 @@
                 </div>
 
 
+                <!-- PROJETO 04 -->
+
                 <div class="project">
 
                     <div class="project-number">
                         04 / PORTFÓLIO
                     </div>
 
-                    <h3>Meu Portfólio</h3>
+                    <h3>
+                        Meu Portfólio
+                    </h3>
 
                     <p>
                         Este próprio site é um projeto desenvolvido para
@@ -640,11 +1196,13 @@
     </section>
 
 
-    <!-- CONTATO -->
+    <!-- =====================================================
+         CONTATO
+    ===================================================== -->
 
     <section id="contato" class="contact">
 
-        <div class="container">
+        <div class="container reveal">
 
             <h2>
                 Vamos criar algo incrível?
@@ -657,6 +1215,8 @@
 
             <div class="socials">
 
+                <!-- GITHUB -->
+
                 <a
                     class="social"
                     href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
@@ -665,12 +1225,19 @@
                     GitHub
                 </a>
 
+
+                <!-- LINKEDIN -->
+
                 <a
                     class="social"
                     href="#"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer">
                     LinkedIn
                 </a>
+
+
+                <!-- EMAIL -->
 
                 <a
                     class="social"
@@ -685,19 +1252,158 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
 
     <footer>
 
         <div class="container">
 
             © 2026 Jessica Monteiro.
-            Desenvolvido com tecnologia e curiosidade.
+            Desenvolvido com
+            <span>tecnologia</span>
+            e curiosidade.
 
         </div>
 
     </footer>
 
+
+    <!-- =====================================================
+         JAVASCRIPT — ANIMAÇÕES
+    ===================================================== -->
+
+    <script>
+
+        /* =====================================================
+           CURSOR GLOW
+        ===================================================== */
+
+        const cursorGlow = document.getElementById("cursorGlow");
+
+        document.addEventListener("mousemove", function(event) {
+
+            cursorGlow.style.left = event.clientX + "px";
+            cursorGlow.style.top = event.clientY + "px";
+
+        });
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        revealElements.forEach(function(element) {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =====================================================
+           ANIMAÇÃO DOS CARDS
+        ===================================================== */
+
+        const projects =
+            document.querySelectorAll(".project");
+
+        projects.forEach(function(project, index) {
+
+            project.style.transitionDelay =
+                (index * 0.08) + "s";
+
+        });
+
+
+        /* =====================================================
+           EFEITO PARALLAX SUAVE NO GLOW
+        ===================================================== */
+
+        document.addEventListener("mousemove", function(event) {
+
+            const x =
+                (event.clientX / window.innerWidth - 0.5) * 20;
+
+            const y =
+                (event.clientY / window.innerHeight - 0.5) * 20;
+
+            document.querySelectorAll(".background-glow")
+                .forEach(function(glow, index) {
+
+                    const multiplier =
+                        index === 0 ? 1 : -1;
+
+                    glow.style.transform =
+                        `translate(${x * multiplier}px, ${y * multiplier}px)`;
+
+                });
+
+        });
+
+
+        /* =====================================================
+           NAVEGAÇÃO SUAVE
+        ===================================================== */
+
+        document.querySelectorAll(".menu a")
+            .forEach(function(link) {
+
+                link.addEventListener("click", function(event) {
+
+                    const targetId =
+                        link.getAttribute("href");
+
+                    const target =
+                        document.querySelector(targetId);
+
+                    if (target) {
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+
+                });
+
+            });
+
+    </script>
 
 </body>
 </html>
