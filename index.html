@@ -1026,7 +1026,7 @@ section {
 
 
 /* =====================================================
-   FOCO PROFISSIONAL — COMPACTO
+   FOCO PROFISSIONAL
 ===================================================== */
 
 .professional-focus {
@@ -1082,7 +1082,7 @@ section {
 
 
 /* =====================================================
-   O QUE FAÇO — CLEAN
+   O QUE FAÇO
 ===================================================== */
 
 .services-section-intro {
@@ -1188,7 +1188,7 @@ section {
 
 
 /* =====================================================
-   TECNOLOGIAS — TAGS
+   TECNOLOGIAS
 ===================================================== */
 
 .technologies-section {
@@ -1500,58 +1500,6 @@ footer {
     color: #555;
 
     font-size: 12px;
-}
-
-
-/* =====================================================
-   PARTICLES
-===================================================== */
-
-.particle {
-
-    position: fixed;
-
-    width: 2px;
-    height: 2px;
-
-    background:
-        rgba(255,255,255,0.5);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    animation:
-        particleMove linear infinite;
-
-    z-index: 0;
-}
-
-@keyframes particleMove {
-
-    from {
-
-        transform:
-            translateY(100vh);
-
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    80% {
-        opacity: 1;
-    }
-
-    to {
-
-        transform:
-            translateY(-10vh);
-
-        opacity: 0;
-    }
 }
 
 
@@ -1954,6 +1902,7 @@ Ver mais sobre mim
 <a
     href="https://github.com/jessicamchagas"
     target="_blank"
+    rel="noopener noreferrer"
     class="btn btn-secondary"
 >
 GitHub
@@ -2492,7 +2441,9 @@ jornada de aprendizado e evolução profissional.
 >
 
 
-<!-- INCIDENT MANAGER -->
+<!-- =====================================================
+     INCIDENT MANAGER
+===================================================== -->
 
 <div class="project-card reveal">
 
@@ -2517,6 +2468,7 @@ e relatórios.
 <a
     href="https://jessicamchagas.github.io/incident-manager/"
     target="_blank"
+    rel="noopener noreferrer"
     class="project-link"
 >
 Abrir plataforma →
@@ -2525,34 +2477,44 @@ Abrir plataforma →
 </div>
 
 
-<!-- PROJETOS IA -->
+<!-- =====================================================
+     ACOLHE
+===================================================== -->
 
 <div class="project-card reveal">
 
 <div class="project-type">
-ARTIFICIAL INTELLIGENCE
+WEB • BEM-ESTAR
 </div>
 
 <h3>
-Projetos com IA
+🌿 Acolhe
 </h3>
 
 <p>
 
-Projetos utilizando Inteligência Artificial
-e novas tecnologias para criação de soluções,
-produtividade e automação.
+Plataforma web criada para oferecer um espaço
+digital de acolhimento, reflexão e autocuidado,
+com check-in emocional, respiração guiada,
+diário privado e pequenas atividades de cuidado.
 
 </p>
 
-<span class="project-link">
-Em desenvolvimento
-</span>
+<a
+    href="https://jessicamchagas.github.io/acolhe/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="project-link"
+>
+Abrir projeto →
+</a>
 
 </div>
 
 
-<!-- AI INCIDENT ANALYZER -->
+<!-- =====================================================
+     AI INCIDENT ANALYZER
+===================================================== -->
 
 <div class="project-card reveal">
 
@@ -2581,7 +2543,9 @@ Em desenvolvimento
 </div>
 
 
-<!-- PORTFOLIO -->
+<!-- =====================================================
+     PORTFOLIO
+===================================================== -->
 
 <div class="project-card reveal">
 
@@ -2604,6 +2568,7 @@ conhecimentos em tecnologia.
 <a
     href="https://github.com/jessicamchagas/jessicamchagas.github.io"
     target="_blank"
+    rel="noopener noreferrer"
     class="project-link"
 >
 Ver no GitHub →
@@ -2660,6 +2625,7 @@ Enviar e-mail
 <a
     href="https://www.linkedin.com/"
     target="_blank"
+    rel="noopener noreferrer"
     class="contact-link"
 >
 LinkedIn
@@ -2669,6 +2635,7 @@ LinkedIn
 <a
     href="https://github.com/jessicamchagas"
     target="_blank"
+    rel="noopener noreferrer"
     class="contact-link"
 >
 GitHub
@@ -2762,60 +2729,6 @@ revealElements.forEach(
         );
 
     }
-);
-
-
-/* =====================================================
-   BACKGROUND PARTICLES
-===================================================== */
-
-function createParticle() {
-
-    const particle =
-        document.createElement("div");
-
-    particle.classList.add(
-        "particle"
-    );
-
-    particle.style.left =
-        Math.random() * 100 + "vw";
-
-    particle.style.animationDuration =
-        (8 + Math.random() * 14) + "s";
-
-    particle.style.opacity =
-        0.2 + Math.random() * 0.8;
-
-    const size =
-        1 + Math.random() * 3;
-
-    particle.style.width =
-        size + "px";
-
-    particle.style.height =
-        size + "px";
-
-    document.body.appendChild(
-        particle
-    );
-
-    setTimeout(
-        () => {
-
-            particle.remove();
-
-        },
-
-        22000
-    );
-
-}
-
-
-setInterval(
-    createParticle,
-    450
 );
 
 
