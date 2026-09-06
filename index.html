@@ -9,17 +9,17 @@
 <title>Jessica Monteiro | Tecnologia • IA • Automação</title>
 
 <meta
-name="description"
-content="Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação, Infraestrutura e Cloud."
+    name="description"
+    content="Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação, Infraestrutura e Cloud."
 >
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap"
-rel="stylesheet">
-
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
@@ -158,7 +158,6 @@ header {
         );
 
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
@@ -382,21 +381,292 @@ section {
 
 
 /* =====================================================
-   HERO IMAGE
+   HERO IMAGE + TECHNOLOGY ORBIT
 ===================================================== */
 
 .hero-image {
+
+    position: relative;
+
+    min-height: 560px;
 
     display: flex;
 
     justify-content: center;
 
-    position: relative;
+    align-items: center;
 }
+
+
+/* Órbitas */
+
+.tech-orbit {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(168, 85, 247, 0.20);
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+.orbit-one {
+
+    width: 470px;
+    height: 470px;
+
+    animation:
+        orbitRotate 22s linear infinite;
+}
+
+.orbit-two {
+
+    width: 540px;
+    height: 300px;
+
+    border-color:
+        rgba(90, 100, 255, 0.13);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-25deg);
+
+    animation:
+        orbitRotateReverse 28s linear infinite;
+}
+
+
+/* Elementos tecnológicos */
+
+.tech-float {
+
+    position: absolute;
+
+    z-index: 4;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 44px;
+
+    height: 44px;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(10, 8, 20, 0.72);
+
+    border:
+        1px solid rgba(168, 85, 247, 0.35);
+
+    box-shadow:
+        0 0 25px rgba(124, 58, 237, 0.15);
+
+    backdrop-filter:
+        blur(10px);
+
+    color: #c084fc;
+
+    font-family:
+        "Orbitron",
+        monospace;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    animation:
+        techFloat 4s ease-in-out infinite;
+}
+
+.tech-one {
+
+    top: 15%;
+    right: 3%;
+
+    animation-delay: 0s;
+}
+
+.tech-two {
+
+    top: 35%;
+    right: -5%;
+
+    color: #8b5cf6;
+
+    animation-delay: -1s;
+}
+
+.tech-three {
+
+    bottom: 22%;
+    right: 2%;
+
+    animation-delay: -2s;
+}
+
+.tech-four {
+
+    bottom: 12%;
+    left: 5%;
+
+    color: #a78bfa;
+
+    animation-delay: -3s;
+}
+
+.tech-five {
+
+    top: 25%;
+    left: 2%;
+
+    font-size: 10px;
+
+    animation-delay: -1.5s;
+}
+
+.tech-six {
+
+    top: 62%;
+    left: -3%;
+
+    animation-delay: -2.5s;
+}
+
+
+/* Nós luminosos */
+
+.tech-node {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #a855f7;
+
+    box-shadow:
+        0 0 12px #a855f7,
+        0 0 30px rgba(168, 85, 247, 0.5);
+
+    z-index: 3;
+
+    animation:
+        nodePulse 2s ease-in-out infinite;
+}
+
+.node-one {
+
+    top: 18%;
+    left: 15%;
+}
+
+.node-two {
+
+    top: 70%;
+    right: 12%;
+
+    animation-delay: -0.8s;
+}
+
+.node-three {
+
+    bottom: 12%;
+    left: 25%;
+
+    animation-delay: -1.4s;
+}
+
+
+/* Linhas tecnológicas */
+
+.hero-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(168, 85, 247, 0.45),
+            transparent
+        );
+
+    top: 24%;
+
+    left: 4%;
+
+    transform:
+        rotate(-25deg);
+
+    z-index: 1;
+
+    animation:
+        linePulse 3s ease-in-out infinite;
+}
+
+.hero-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(99, 102, 241, 0.45),
+            transparent
+        );
+
+    bottom: 24%;
+
+    right: 0;
+
+    transform:
+        rotate(25deg);
+
+    z-index: 1;
+
+    animation:
+        linePulse 3s ease-in-out infinite;
+
+    animation-delay: -1.5s;
+}
+
+
+/* Foto */
 
 .photo-container {
 
     position: relative;
+
+    z-index: 2;
 
     width: 380px;
 
@@ -411,6 +681,9 @@ section {
 
     box-shadow:
         0 0 80px rgba(124,58,237,0.18);
+
+    transition:
+        transform 0.25s ease;
 }
 
 .photo-container::after {
@@ -434,7 +707,6 @@ section {
 .photo-container img {
 
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
@@ -444,7 +716,9 @@ section {
 }
 
 .photo-container:hover img {
-    transform: scale(1.04);
+
+    transform:
+        scale(1.04);
 }
 
 
@@ -490,7 +764,9 @@ section {
 
 .about-highlight h3 {
 
-    font-family: "Orbitron", sans-serif;
+    font-family:
+        "Orbitron",
+        sans-serif;
 
     font-size: 18px;
 
@@ -622,7 +898,9 @@ section {
 
 .service-number {
 
-    font-family: "Orbitron", sans-serif;
+    font-family:
+        "Orbitron",
+        sans-serif;
 
     color: #a855f7;
 
@@ -754,7 +1032,8 @@ section {
 
 .project-card:hover::before {
 
-    transform: scale(2);
+    transform:
+        scale(2);
 
     background:
         rgba(168,85,247,0.10);
@@ -774,7 +1053,9 @@ section {
 
 .project-number {
 
-    font-family: "Orbitron", sans-serif;
+    font-family:
+        "Orbitron",
+        sans-serif;
 
     color: #a855f7;
 
@@ -836,7 +1117,7 @@ section {
 
 
 /* =====================================================
-   PROJECT TYPE BADGES
+   PROJECT BADGES
 ===================================================== */
 
 .project-type {
@@ -992,7 +1273,93 @@ footer {
 
         opacity: 0;
     }
+}
 
+
+/* =====================================================
+   TECHNOLOGY ANIMATIONS
+===================================================== */
+
+@keyframes orbitRotate {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes orbitRotateReverse {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-25deg);
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-385deg);
+    }
+}
+
+@keyframes techFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+}
+
+@keyframes nodePulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: 0.6;
+    }
+
+    50% {
+
+        transform: scale(1.8);
+
+        opacity: 1;
+    }
+}
+
+@keyframes linePulse {
+
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
 }
 
 
@@ -1041,24 +1408,57 @@ footer {
     .hero-description {
 
         margin-left: auto;
-
         margin-right: auto;
     }
 
     .hero-buttons {
-
         justify-content: center;
     }
 
     .hero-image {
+
         order: -1;
+
+        min-height: 450px;
     }
 
     .photo-container {
 
         width: 280px;
-
         height: 360px;
+    }
+
+    .orbit-one {
+
+        width: 340px;
+        height: 340px;
+    }
+
+    .orbit-two {
+
+        width: 390px;
+        height: 230px;
+    }
+
+    .tech-float {
+
+        min-width: 38px;
+
+        height: 38px;
+
+        font-size: 9px;
+    }
+
+    .tech-one {
+        right: 2%;
+    }
+
+    .tech-two {
+        right: -2%;
+    }
+
+    .tech-three {
+        right: 3%;
     }
 
     .about-grid {
@@ -1075,9 +1475,7 @@ footer {
 
         grid-template-columns: 1fr;
     }
-
 }
-
 
 @media (max-width: 500px) {
 
@@ -1096,10 +1494,8 @@ footer {
     .photo-container {
 
         width: 240px;
-
         height: 310px;
     }
-
 }
 
 
@@ -1178,33 +1574,32 @@ JESSICA.
      HERO
 ===================================================== -->
 
-<section id="inicio" class="hero">
+<section class="hero" id="inicio">
 
 
 <div class="hero-text reveal">
 
-<span class="hero-label">
+<div class="hero-label">
+
 ✦ Tecnologia • IA • Automação
-</span>
+
+</div>
+
 
 <h1>
 
 Olá, eu sou
-
-<span>
-Jessica Monteiro.
-</span>
+<span>Jessica Monteiro.</span>
 
 </h1>
+
 
 <p class="hero-description">
 
 Desenvolvedora em formação, apaixonada por tecnologia,
-Inteligência Artificial e automação.
-
-Transformo ideias em soluções digitais e estou constantemente
-aprendendo, criando e explorando novas possibilidades através
-da tecnologia.
+Inteligência Artificial e automação. Transformo ideias
+em soluções digitais e estou constantemente aprendendo,
+criando e explorando novas possibilidades através da tecnologia.
 
 </p>
 
@@ -1212,17 +1607,16 @@ da tecnologia.
 <div class="hero-buttons">
 
 <a
-href="#projetos"
-class="btn btn-primary"
+    href="#sobre"
+    class="btn btn-primary"
 >
-Conheça meus projetos
+Ver mais sobre mim
 </a>
 
 <a
-href="https://github.com/jessicamchagas"
-target="_blank"
-rel="noopener noreferrer"
-class="btn btn-secondary"
+    href="https://github.com/jessicamchagas"
+    target="_blank"
+    class="btn btn-secondary"
 >
 GitHub
 </a>
@@ -1234,17 +1628,55 @@ GitHub
 
 <div class="hero-image reveal">
 
+
+<div class="tech-orbit orbit-one"></div>
+
+<div class="tech-orbit orbit-two"></div>
+
+
+<span class="tech-float tech-one">
+&lt;/&gt;
+</span>
+
+<span class="tech-float tech-two">
+AI
+</span>
+
+<span class="tech-float tech-three">
+{ }
+</span>
+
+<span class="tech-float tech-four">
+⚡
+</span>
+
+<span class="tech-float tech-five">
+01
+</span>
+
+<span class="tech-float tech-six">
+⌘
+</span>
+
+
+<div class="tech-node node-one"></div>
+
+<div class="tech-node node-two"></div>
+
+<div class="tech-node node-three"></div>
+
+
 <div class="photo-container">
 
 <img
-src="jmonteiro-foto.jpeg"
-alt="Jessica Monteiro"
+    src="jmonteiro-foto.jpeg"
+    alt="Jessica Monteiro"
 >
 
 </div>
 
-</div>
 
+</div>
 
 </section>
 
@@ -1255,11 +1687,10 @@ alt="Jessica Monteiro"
 
 <section id="sobre">
 
-
 <div class="about-grid">
 
 
-<div class="reveal">
+<div class="about-text reveal">
 
 <div class="section-label">
 Sobre mim
@@ -1269,34 +1700,35 @@ Sobre mim
 Tecnologia com propósito.
 </h2>
 
-<div class="about-text">
 
 <p>
 
-Sou Jéssica Monteiro Chagas, estudante de Análise e
-Desenvolvimento de Sistemas e profissional da área de TI,
-com experiência em suporte técnico, infraestrutura e
-ambientes educacionais de alta demanda.
+Sou Jéssica Monteiro Chagas, estudante de
+Análise e Desenvolvimento de Sistemas e
+profissional da área de TI, com experiência
+em suporte técnico, infraestrutura e ambientes
+educacionais de alta demanda.
 
 </p>
+
 
 <p>
 
 Tenho forte interesse por tecnologia de nuvem,
-Inteligência Artificial, automação, segurança da informação
-e desenvolvimento web.
+Inteligência Artificial, automação, segurança
+da informação e desenvolvimento web.
 
 </p>
+
 
 <p>
 
-Sou uma profissional comprometida, proativa e focada em
-resultados, com perfil autodidata e determinação para
-continuar evoluindo no ecossistema de tecnologia.
+Sou uma profissional comprometida, proativa
+e focada em resultados, com perfil autodidata
+e determinação para continuar evoluindo no
+ecossistema de tecnologia.
 
 </p>
-
-</div>
 
 </div>
 
@@ -1309,10 +1741,11 @@ Construindo o futuro.
 
 <p>
 
-Meu objetivo é unir experiência prática em TI com
-desenvolvimento, Inteligência Artificial, automação e
-computação em nuvem para criar soluções cada vez mais
-inteligentes, eficientes e seguras.
+Meu objetivo é unir experiência prática em TI
+com desenvolvimento, Inteligência Artificial,
+automação e computação em nuvem para criar
+soluções cada vez mais inteligentes, eficientes
+e seguras.
 
 </p>
 
@@ -1351,25 +1784,27 @@ infraestrutura de TI e ambientes educacionais.
 </div>
 
 
-<div
-class="experience-list"
-style="margin-top:50px;"
->
+<div class="experience-list">
 
+
+<!-- UNI7 -->
 
 <div class="experience-card reveal">
 
 <div class="experience-date">
-Atualmente
+ATUALMENTE
 </div>
+
 
 <h3>
 Centro Universitário 7 de Setembro — UNI7
 </h3>
 
+
 <div class="experience-role">
 Operadora de Computador • Suporte N2
 </div>
+
 
 <p>
 
@@ -1383,66 +1818,66 @@ de tecnologia em um ambiente educacional de alta demanda.
 </div>
 
 
+<!-- FAMEC -->
+
 <div class="experience-card reveal">
 
 <div class="experience-date">
-Experiência anterior
+EXPERIÊNCIA ANTERIOR
 </div>
+
 
 <h3>
 Faculdade Metropolitana do Ceará — FAMEC
 </h3>
 
+
 <div class="experience-role">
 Suporte Técnico • Tecnologia da Informação
 </div>
 
+
 <p>
 
-Atuação com suporte técnico, gerenciamento de equipamentos
-e auxílio na implementação de soluções de TI, além de
-atividades junto aos setores de secretaria acadêmica
-e financeira.
+Atuação com suporte técnico, gerenciamento de
+equipamentos e auxílio na implementação de soluções
+de TI, além de atividades junto aos setores de
+secretaria acadêmica e financeira.
 
 </p>
 
 </div>
 
 
-<div class="experience-card reveal">
-
-<div class="experience-date">
-Foco profissional
 </div>
+
+
+<div class="about-highlight reveal" style="margin-top: 25px;">
 
 <h3>
-Cloud • IA • Automação
+Foco profissional
 </h3>
-
-<div class="experience-role">
-Evolução profissional
-</div>
 
 <p>
 
-Atualmente, tenho interesse em ambientes de computação
-em nuvem, especialmente Microsoft Azure. Estou ampliando
-meus conhecimentos em infraestrutura, gerenciamento de
-recursos, segurança em nuvem, Inteligência Artificial
-e automação.
+Atualmente, tenho interesse em ambientes de
+computação em nuvem, especialmente Microsoft Azure.
+Estou ampliando meus conhecimentos em Infraestrutura
+como Serviço (IaaS), gerenciamento de recursos e
+segurança em nuvem, buscando aplicar esses
+conhecimentos de forma prática na minha evolução
+profissional.
 
 </p>
 
 </div>
 
-
-</div>
 
 </section>
 
 
 <!-- =====================================================
-     SERVIÇOS
+     O QUE FAÇO
 ===================================================== -->
 
 <section id="servicos">
@@ -1460,18 +1895,15 @@ Onde tecnologia encontra criatividade.
 
 <p class="section-description">
 
-Áreas que fazem parte da minha atuação, estudos,
-projetos e interesses profissionais.
+Áreas que fazem parte da minha atuação,
+estudos, projetos e interesses profissionais.
 
 </p>
 
 </div>
 
 
-<div
-class="services-grid"
-style="margin-top:50px;"
->
+<div class="services-grid" style="margin-top:45px;">
 
 
 <div class="service-card reveal">
@@ -1529,8 +1961,8 @@ Cloud & Automação
 <p>
 
 Estudos voltados para computação em nuvem,
-Microsoft Azure, automação de processos
-e desenvolvimento de soluções tecnológicas.
+Microsoft Azure, automação de processos e
+desenvolvimento de soluções tecnológicas.
 
 </p>
 
@@ -1570,54 +2002,54 @@ na minha jornada de aprendizado.
 
 
 <div
-class="tech-grid reveal"
-style="margin-top:40px;"
+    class="tech-grid reveal"
+    style="margin-top:45px;"
 >
 
 
-<div class="tech-item">
+<span class="tech-item">
 Python
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 JavaScript
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 HTML
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 CSS
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 Git
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 GitHub
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 Docker
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 Microsoft Azure
-</div>
+</span>
 
-<div class="tech-item">
-Inteligência Artificial
-</div>
+<span class="tech-item">
+IA
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 Automação
-</div>
+</span>
 
-<div class="tech-item">
+<span class="tech-item">
 APIs
-</div>
+</span>
 
 
 </div>
@@ -1639,132 +2071,93 @@ Projetos
 </div>
 
 <h2 class="section-title">
-Soluções que estou construindo.
+O que estou construindo.
 </h2>
 
 <p class="section-description">
 
-Projetos práticos que mostram como estou aplicando
-tecnologia, desenvolvimento e Inteligência Artificial
-para resolver problemas reais.
+Projetos práticos desenvolvidos durante minha
+jornada de aprendizado e evolução profissional.
 
 </p>
 
 </div>
 
 
-<div
-class="projects-grid"
-style="margin-top:50px;"
->
+<div class="projects-grid" style="margin-top:45px;">
 
 
-<!-- =================================================
-     PROJECT 01
-================================================= -->
+<!-- INCIDENT MANAGER -->
 
 <div class="project-card reveal">
-
-
-<div class="project-number">
-PROJECT 01
-</div>
-
 
 <div class="project-type">
 IT OPERATIONS
 </div>
 
-
 <h3>
 Incident Manager
 </h3>
 
-
 <p>
 
-Plataforma operacional para equipes de TI gerenciarem
-o ciclo completo de incidentes: atendimento,
-responsáveis, prioridades, investigação, atualização
-de status, resolução e relatórios.
+Plataforma operacional para equipes de TI
+gerenciarem o ciclo completo de incidentes:
+atendimento, responsáveis, prioridades,
+investigação, atualização de status, resolução
+e relatórios.
 
 </p>
 
-
 <a
-href="https://jessicamchagas.github.io/incident-manager/"
-target="_blank"
-rel="noopener noreferrer"
-class="project-link"
+    href="https://jessicamchagas.github.io/incident-manager/"
+    target="_blank"
+    class="project-link"
 >
 Abrir plataforma →
 </a>
 
-
 </div>
 
 
-<!-- =================================================
-     PROJECT 02
-================================================= -->
+<!-- IA -->
 
 <div class="project-card reveal">
-
-
-<div class="project-number">
-PROJECT 02
-</div>
-
 
 <div class="project-type">
 ARTIFICIAL INTELLIGENCE
 </div>
 
-
 <h3>
 Projetos com IA
 </h3>
 
-
 <p>
 
-Projetos experimentais utilizando Inteligência
-Artificial para automação, produtividade,
-análise de informações e criação de soluções
-digitais.
+Projetos utilizando Inteligência Artificial
+e novas tecnologias para criação de soluções,
+produtividade e automação.
 
 </p>
-
 
 <span class="project-link">
 Em desenvolvimento
 </span>
 
-
 </div>
 
 
-<!-- =================================================
-     PROJECT 03
-================================================= -->
+<!-- AI INCIDENT ANALYZER -->
 
 <div class="project-card reveal">
-
-
-<div class="project-number">
-PROJECT 03
-</div>
-
 
 <div class="project-type">
 AI • TRIAGE
 </div>
 
-
 <h3>
 AI Incident Analyzer
 </h3>
-
 
 <p>
 
@@ -1776,55 +2169,44 @@ encaminhamento ao suporte técnico.
 
 </p>
 
-
-<span class="project-link">
-Em desenvolvimento
-</span>
-
+<a
+    href="https://jessicamchagas.github.io/ai-incident-analyzer/"
+    target="_blank"
+    class="project-link"
+>
+Abrir projeto →
+</a>
 
 </div>
 
 
-<!-- =================================================
-     PROJECT 04
-================================================= -->
+<!-- PORTFOLIO -->
 
 <div class="project-card reveal">
-
-
-<div class="project-number">
-PROJECT 04
-</div>
-
 
 <div class="project-type">
 PORTFOLIO
 </div>
 
-
 <h3>
 Meu Portfólio
 </h3>
 
-
 <p>
 
-Este próprio portfólio, desenvolvido para apresentar
-minha trajetória profissional, conhecimentos,
-experimentos e projetos na área de tecnologia.
+Este próprio portfólio, desenvolvido para
+apresentar minha trajetória, projetos e
+conhecimentos em tecnologia.
 
 </p>
 
-
 <a
-href="https://github.com/jessicamchagas/jessicamchagas.github.io"
-target="_blank"
-rel="noopener noreferrer"
-class="project-link"
+    href="https://github.com/jessicamchagas/jessicamchagas.github.io"
+    target="_blank"
+    class="project-link"
 >
-Ver código no GitHub →
+Ver no GitHub →
 </a>
-
 
 </div>
 
@@ -1839,29 +2221,26 @@ Ver código no GitHub →
 ===================================================== -->
 
 <section
-id="contato"
-class="contact"
+    id="contato"
+    class="contact"
 >
 
 
 <div class="reveal">
 
-
 <div class="section-label">
 Contato
 </div>
-
 
 <h2 class="section-title">
 Vamos criar algo incrível?
 </h2>
 
-
 <p class="section-description">
 
-Estou aberta a conexões, oportunidades, projetos
-e conversas sobre tecnologia, Inteligência Artificial
-e automação.
+Estou aberta a conexões, oportunidades,
+projetos e conversas sobre tecnologia,
+Inteligência Artificial e automação.
 
 </p>
 
@@ -1870,28 +2249,26 @@ e automação.
 
 
 <a
-href="mailto:jessicamonteiro.dev@gmail.com"
-class="contact-link"
+    href="mailto:jessicamonteiro.dev@gmail.com"
+    class="contact-link"
 >
 Enviar e-mail
 </a>
 
 
 <a
-href="https://www.linkedin.com/"
-target="_blank"
-rel="noopener noreferrer"
-class="contact-link"
+    href="https://www.linkedin.com/"
+    target="_blank"
+    class="contact-link"
 >
 LinkedIn
 </a>
 
 
 <a
-href="https://github.com/jessicamchagas"
-target="_blank"
-rel="noopener noreferrer"
-class="contact-link"
+    href="https://github.com/jessicamchagas"
+    target="_blank"
+    class="contact-link"
 >
 GitHub
 </a>
@@ -1899,9 +2276,7 @@ GitHub
 
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -1928,178 +2303,196 @@ const cursorGlow =
 document.querySelector(".cursor-glow");
 
 document.addEventListener(
-"mousemove",
-(event) => {
+    "mousemove",
+    (event) => {
 
-cursorGlow.style.left =
-event.clientX + "px";
+        cursorGlow.style.left =
+            event.clientX + "px";
 
-cursorGlow.style.top =
-event.clientY + "px";
+        cursorGlow.style.top =
+            event.clientY + "px";
 
-}
+    }
 );
 
 
 /* =====================================================
-   REVEAL ANIMATION
+   REVEAL
 ===================================================== */
 
 const revealElements =
 document.querySelectorAll(".reveal");
 
-
 const revealObserver =
 new IntersectionObserver(
 
-(entries) => {
+    (entries) => {
 
-entries.forEach(
-(entry) => {
+        entries.forEach(
+            (entry) => {
 
-if (entry.isIntersecting) {
+                if (
+                    entry.isIntersecting
+                ) {
 
-entry.target.classList.add(
-"active"
-);
+                    entry.target.classList.add(
+                        "active"
+                    );
 
-}
+                }
 
-}
-);
+            }
+        );
 
-},
+    },
 
-{
-threshold: 0.12
-}
+    {
+        threshold: 0.12
+    }
 
 );
 
 
 revealElements.forEach(
-(element) => {
+    (element) => {
 
-revealObserver.observe(
-element
-);
+        revealObserver.observe(
+            element
+        );
 
-}
+    }
 );
 
 
 /* =====================================================
-   PARTICLES
+   BACKGROUND PARTICLES
 ===================================================== */
 
 function createParticle() {
 
-const particle =
-document.createElement("div");
+    const particle =
+        document.createElement("div");
 
-particle.classList.add(
-"particle"
-);
-
-particle.style.left =
-Math.random() * 100 + "vw";
-
-particle.style.animationDuration =
-(8 + Math.random() * 12) + "s";
-
-particle.style.opacity =
-Math.random();
-
-document.body.appendChild(
-particle
-);
+    particle.classList.add(
+        "particle"
+    );
 
 
-setTimeout(
-() => {
+    particle.style.left =
+        Math.random() * 100 + "vw";
 
-particle.remove();
 
-},
-20000
-);
+    particle.style.animationDuration =
+        (8 + Math.random() * 14) + "s";
+
+
+    particle.style.opacity =
+        0.2 + Math.random() * 0.8;
+
+
+    const size =
+        1 + Math.random() * 3;
+
+
+    particle.style.width =
+        size + "px";
+
+
+    particle.style.height =
+        size + "px";
+
+
+    document.body.appendChild(
+        particle
+    );
+
+
+    setTimeout(
+        () => {
+
+            particle.remove();
+
+        },
+
+        22000
+    );
 
 }
 
 
 setInterval(
-createParticle,
-700
+    createParticle,
+    450
 );
 
 
 /* =====================================================
-   PHOTO MOVEMENT
+   PHOTO PARALLAX
 ===================================================== */
 
 const photo =
 document.querySelector(
-".photo-container"
+    ".photo-container"
 );
 
-
 document.addEventListener(
-"mousemove",
-(event) => {
+    "mousemove",
+    (event) => {
 
-if (!photo) return;
-
-
-const x =
-(
-event.clientX /
-window.innerWidth -
-0.5
-) * 8;
+        if (!photo) return;
 
 
-const y =
-(
-event.clientY /
-window.innerHeight -
-0.5
-) * 8;
+        const x =
+            (
+                event.clientX /
+                window.innerWidth -
+                0.5
+            ) * 8;
 
 
-photo.style.transform =
-`translate(${x}px, ${y}px)`;
+        const y =
+            (
+                event.clientY /
+                window.innerHeight -
+                0.5
+            ) * 8;
 
-}
+
+        photo.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+    }
 );
 
 
 /* =====================================================
-   NAVBAR SCROLL
+   NAVBAR
 ===================================================== */
 
 const header =
-document.querySelector("header");
-
+document.querySelector(
+    "header"
+);
 
 window.addEventListener(
-"scroll",
-() => {
+    "scroll",
+    () => {
 
-if (
-window.scrollY > 50
-) {
+        if (
+            window.scrollY > 50
+        ) {
 
-header.style.background =
-"rgba(5, 5, 7, 0.92)";
+            header.style.background =
+                "rgba(5, 5, 7, 0.92)";
 
-} else {
+        } else {
 
-header.style.background =
-"rgba(5, 5, 7, 0.78)";
+            header.style.background =
+                "rgba(5, 5, 7, 0.78)";
 
-}
+        }
 
-}
+    }
 );
 
 </script>
