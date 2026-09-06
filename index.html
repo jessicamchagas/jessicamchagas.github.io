@@ -13,8 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
         rel="stylesheet">
 
     <style>
@@ -40,10 +39,6 @@
             text-decoration: none;
             color: inherit;
         }
-
-        /* =========================
-           FUNDO
-        ========================= */
 
         body::before {
             content: "";
@@ -91,10 +86,6 @@
             );
         }
 
-        /* =========================
-           CURSOR GLOW
-        ========================= */
-
         #cursorGlow {
             position: fixed;
             width: 350px;
@@ -112,10 +103,6 @@
             transform: translate(-50%, -50%);
             transition: left 0.08s linear, top 0.08s linear;
         }
-
-        /* =========================
-           PARTÍCULAS
-        ========================= */
 
         #particles {
             position: fixed;
@@ -154,10 +141,6 @@
             }
         }
 
-        /* =========================
-           NAVBAR
-        ========================= */
-
         nav {
             position: fixed;
             top: 0;
@@ -191,7 +174,6 @@
             font-size: 20px;
             font-weight: 800;
             letter-spacing: 3px;
-
             color: #ffffff;
         }
 
@@ -238,10 +220,6 @@
             width: 100%;
         }
 
-        /* =========================
-           GERAL
-        ========================= */
-
         section {
             width: 100%;
             max-width: 1250px;
@@ -271,10 +249,6 @@
             line-height: 1.8;
             font-size: 15px;
         }
-
-        /* =========================
-           HERO
-        ========================= */
 
         .hero {
             min-height: 100vh;
@@ -415,10 +389,6 @@
             transform: translateY(-4px);
         }
 
-        /* =========================
-           FOTO
-        ========================= */
-
         .hero-photo {
             position: relative;
 
@@ -515,7 +485,6 @@
             height: 100%;
 
             object-fit: cover;
-
             object-position: center;
 
             filter:
@@ -530,15 +499,12 @@
 
         .photo-frame:hover img {
             transform: scale(1.07);
+
             filter:
                 grayscale(70%)
                 contrast(1.08)
                 brightness(0.95);
         }
-
-        /* =========================
-           ÓRBITA
-        ========================= */
 
         .orbit {
             position: absolute;
@@ -580,10 +546,6 @@
             bottom: 45px;
             right: 35px;
         }
-
-        /* =========================
-           ELEMENTOS FLUTUANTES
-        ========================= */
 
         .tech-orb {
             position: absolute;
@@ -634,10 +596,6 @@
 
             animation: floatThree 5.5s ease-in-out infinite;
         }
-
-        /* =========================
-           SOBRE
-        ========================= */
 
         .about-grid {
             display: grid;
@@ -691,10 +649,6 @@
             font-size: 14px;
         }
 
-        /* =========================
-           TRAJETÓRIA
-        ========================= */
-
         .timeline {
             margin-top: 55px;
 
@@ -734,15 +688,10 @@
             line-height: 1.7;
         }
 
-        /* =========================
-           SERVIÇOS
-        ========================= */
-
         .services-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 20px;
 
@@ -820,15 +769,10 @@
             line-height: 1.7;
         }
 
-        /* =========================
-           TECNOLOGIAS
-        ========================= */
-
         .tech-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr);
 
             gap: 15px;
 
@@ -876,15 +820,10 @@
             font-size: 11px;
         }
 
-        /* =========================
-           PROJETOS
-        ========================= */
-
         .projects-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
             gap: 20px;
 
@@ -997,10 +936,6 @@
             transform: translateX(5px);
         }
 
-        /* =========================
-           CONTATO
-        ========================= */
-
         .contact {
             text-align: center;
 
@@ -1061,10 +996,6 @@
             color: #ffffff;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
-
         footer {
             padding: 35px 7%;
 
@@ -1082,10 +1013,6 @@
         footer span {
             color: #a855f7;
         }
-
-        /* =========================
-           ANIMAÇÕES
-        ========================= */
 
         @keyframes fadeUp {
 
@@ -1197,10 +1124,6 @@
             }
         }
 
-        /* =========================
-           REVEAL AO ROLAR
-        ========================= */
-
         .reveal {
             opacity: 0;
 
@@ -1216,10 +1139,6 @@
 
             transform: translateY(0);
         }
-
-        /* =========================
-           RESPONSIVO
-        ========================= */
 
         @media (max-width: 1000px) {
 
@@ -1257,8 +1176,7 @@
             }
 
             .tech-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1273,8 +1191,7 @@
             }
 
             section {
-                padding:
-                    90px 6%;
+                padding: 90px 6%;
             }
 
             .hero {
@@ -1321,8 +1238,7 @@
             }
 
             .tech-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .section-title {
@@ -1364,17 +1280,8 @@
 
 <body>
 
-    <!-- =========================
-         EFEITOS DE FUNDO
-    ========================= -->
-
     <div id="particles"></div>
     <div id="cursorGlow"></div>
-
-
-    <!-- =========================
-         NAVBAR
-    ========================= -->
 
     <nav id="navbar">
 
@@ -1417,10 +1324,6 @@
     </nav>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
-
     <section class="hero" id="inicio">
 
         <div class="hero-content">
@@ -1461,8 +1364,6 @@
         </div>
 
 
-        <!-- FOTO -->
-
         <div class="hero-photo">
 
             <div class="photo-glow"></div>
@@ -1494,10 +1395,6 @@
 
     </section>
 
-
-    <!-- =========================
-         SOBRE
-    ========================= -->
 
     <section id="sobre" class="reveal">
 
@@ -1552,10 +1449,6 @@
 
     </section>
 
-
-    <!-- =========================
-         TRAJETÓRIA
-    ========================= -->
 
     <section id="trajetoria" class="reveal">
 
@@ -1626,10 +1519,6 @@
 
     </section>
 
-
-    <!-- =========================
-         O QUE EU FAÇO
-    ========================= -->
 
     <section id="servicos" class="reveal">
 
@@ -1710,10 +1599,6 @@
     </section>
 
 
-    <!-- =========================
-         TECNOLOGIAS
-    ========================= -->
-
     <section id="tecnologias" class="reveal">
 
         <div class="section-label">
@@ -1775,10 +1660,6 @@
     </section>
 
 
-    <!-- =========================
-         PROJETOS
-    ========================= -->
-
     <section id="projetos" class="reveal">
 
         <div class="section-label">
@@ -1800,8 +1681,6 @@
 
         <div class="projects-grid">
 
-
-            <!-- SENTINELSOC -->
 
             <div class="project-card">
 
@@ -1831,8 +1710,6 @@
             </div>
 
 
-            <!-- IA -->
-
             <div class="project-card">
 
                 <div class="project-number">
@@ -1856,8 +1733,6 @@
             </div>
 
 
-            <!-- AUTOMAÇÃO -->
-
             <div class="project-card">
 
                 <div class="project-number">
@@ -1880,8 +1755,6 @@
 
             </div>
 
-
-            <!-- PORTFÓLIO -->
 
             <div class="project-card">
 
@@ -1915,10 +1788,6 @@
     </section>
 
 
-    <!-- =========================
-         CONTATO
-    ========================= -->
-
     <section id="contato" class="contact reveal">
 
         <div class="section-label">
@@ -1941,8 +1810,6 @@
 
         <div class="contact-buttons">
 
-            <!-- E-MAIL -->
-
             <a
                 href="mailto:jessicamonteiro.dev@gmail.com"
                 class="btn primary"
@@ -1950,8 +1817,6 @@
                 Enviar e-mail
             </a>
 
-
-            <!-- LINKEDIN -->
 
             <a
                 href="https://www.linkedin.com/in/jessica-monteiro-244141188/"
@@ -1962,8 +1827,6 @@
                 LinkedIn
             </a>
 
-
-            <!-- GITHUB -->
 
             <a
                 href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
@@ -1987,10 +1850,6 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
     <footer>
 
         © 2026 Jessica Monteiro.
@@ -2001,15 +1860,7 @@
     </footer>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
     <script>
-
-        /* =========================
-           PARTÍCULAS
-        ========================= */
 
         const particlesContainer =
             document.getElementById("particles");
@@ -2041,10 +1892,6 @@
             );
         }
 
-
-        /* =========================
-           REVEAL AO SCROLL
-        ========================= */
 
         const reveals =
             document.querySelectorAll(".reveal");
@@ -2078,10 +1925,6 @@
         });
 
 
-        /* =========================
-           NAVBAR
-        ========================= */
-
         const navbar =
             document.getElementById("navbar");
 
@@ -2107,10 +1950,6 @@
         );
 
 
-        /* =========================
-           CURSOR GLOW
-        ========================= */
-
         const cursorGlow =
             document.getElementById("cursorGlow");
 
@@ -2127,10 +1966,6 @@
             }
         );
 
-
-        /* =========================
-           MOVIMENTO DA FOTO
-        ========================= */
 
         const photoFrame =
             document.querySelector(".photo-frame");
@@ -2160,10 +1995,6 @@
             }
         );
 
-
-        /* =========================
-           RESET DO MOVIMENTO
-        ========================= */
 
         document.addEventListener(
             "mouseleave",
