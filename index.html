@@ -47,13 +47,11 @@ body {
             rgba(122, 0, 255, 0.12),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 80% 70%,
             rgba(0, 140, 255, 0.08),
             transparent 30%
         ),
-
         #050507;
 
     color: #f5f5f5;
@@ -158,6 +156,7 @@ header {
         );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
@@ -381,7 +380,7 @@ section {
 
 
 /* =====================================================
-   HERO IMAGE + TECHNOLOGY ORBIT
+   HERO IMAGE
 ===================================================== */
 
 .hero-image {
@@ -398,7 +397,9 @@ section {
 }
 
 
-/* Órbitas */
+/* =====================================================
+   ÓRBITAS
+===================================================== */
 
 .tech-orbit {
 
@@ -444,7 +445,9 @@ section {
 }
 
 
-/* Elementos tecnológicos */
+/* =====================================================
+   ELEMENTOS TECNOLÓGICOS
+===================================================== */
 
 .tech-float {
 
@@ -498,8 +501,6 @@ section {
 
     top: 15%;
     right: 3%;
-
-    animation-delay: 0s;
 }
 
 .tech-two {
@@ -549,7 +550,9 @@ section {
 }
 
 
-/* Nós luminosos */
+/* =====================================================
+   NÓS
+===================================================== */
 
 .tech-node {
 
@@ -595,7 +598,9 @@ section {
 }
 
 
-/* Linhas tecnológicas */
+/* =====================================================
+   LINHAS TECNOLÓGICAS
+===================================================== */
 
 .hero-image::before {
 
@@ -660,7 +665,9 @@ section {
 }
 
 
-/* Foto */
+/* =====================================================
+   FOTO
+===================================================== */
 
 .photo-container {
 
@@ -723,7 +730,7 @@ section {
 
 
 /* =====================================================
-   ABOUT
+   SOBRE
 ===================================================== */
 
 .about-grid {
@@ -779,19 +786,145 @@ section {
 
 
 /* =====================================================
-   EXPERIENCE
+   EXPERIÊNCIA — TIMELINE
 ===================================================== */
 
-.experience-list {
-
-    display: grid;
-
-    gap: 25px;
+.experience-intro {
+    margin-bottom: 65px;
 }
 
-.experience-card {
+.experience-timeline {
 
-    padding: 30px;
+    position: relative;
+
+    max-width: 950px;
+
+    margin: 0 auto;
+}
+
+
+/* Linha central */
+
+.experience-timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    bottom: 10px;
+
+    left: 50%;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(168,85,247,0.65),
+            rgba(99,102,241,0.45),
+            transparent
+        );
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* Item */
+
+.timeline-item {
+
+    position: relative;
+
+    width: 50%;
+
+    padding-bottom: 55px;
+}
+
+.timeline-item:nth-child(odd) {
+
+    padding-right: 55px;
+
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+
+    margin-left: 50%;
+
+    padding-left: 55px;
+
+    text-align: left;
+}
+
+
+/* Ponto */
+
+.timeline-dot {
+
+    position: absolute;
+
+    top: 8px;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: #a855f7;
+
+    border:
+        3px solid #08070b;
+
+    box-shadow:
+        0 0 0 1px rgba(168,85,247,0.6),
+        0 0 20px rgba(168,85,247,0.55);
+
+    z-index: 3;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+
+    right: -7px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+
+    left: -7px;
+}
+
+
+/* Data */
+
+.timeline-date {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #a855f7;
+
+    font-family:
+        "Orbitron",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* Card */
+
+.timeline-content {
+
+    padding: 28px;
 
     border:
         1px solid rgba(255,255,255,0.07);
@@ -799,53 +932,106 @@ section {
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.035),
-            rgba(255,255,255,0.01)
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.012)
         );
 
     border-radius: 14px;
 
-    transition: 0.3s;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    position: relative;
 }
 
-.experience-card:hover {
+.timeline-content:hover {
 
     transform:
         translateY(-5px);
 
     border-color:
         rgba(168,85,247,0.35);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.25);
 }
 
-.experience-date {
+.timeline-content h3 {
 
-    color: #a855f7;
+    font-size: 20px;
 
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
+    line-height: 1.3;
 
     margin-bottom: 8px;
 }
 
-.experience-card h3 {
+.timeline-role {
 
-    font-size: 21px;
+    color: #b56cff;
 
-    margin-bottom: 5px;
-}
+    font-size: 13px;
 
-.experience-role {
-
-    color: #aaa;
+    font-weight: 600;
 
     margin-bottom: 15px;
 }
 
-.experience-card p {
+.timeline-content p {
+
     color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* Badge atual */
+
+.timeline-current {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 14px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(168,85,247,0.08);
+
+    border:
+        1px solid rgba(168,85,247,0.2);
+
+    color: #c084fc;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.timeline-current::before {
+
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #a855f7;
+
+    box-shadow:
+        0 0 8px #a855f7;
 }
 
 
@@ -925,7 +1111,7 @@ section {
 
 
 /* =====================================================
-   TECHNOLOGIES
+   TECNOLOGIAS
 ===================================================== */
 
 .tech-grid {
@@ -1051,21 +1237,6 @@ section {
         0 25px 60px rgba(0,0,0,0.3);
 }
 
-.project-number {
-
-    font-family:
-        "Orbitron",
-        sans-serif;
-
-    color: #a855f7;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 25px;
-}
-
 .project-card h3 {
 
     font-size: 25px;
@@ -1084,6 +1255,35 @@ section {
     font-size: 14px;
 
     margin-bottom: 25px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.project-type {
+
+    display: inline-flex;
+
+    padding: 6px 10px;
+
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    background:
+        rgba(168,85,247,0.08);
+
+    border:
+        1px solid rgba(168,85,247,0.18);
+
+    color: #b56cff;
 
     position: relative;
 
@@ -1113,40 +1313,6 @@ section {
 
     transform:
         translateX(4px);
-}
-
-
-/* =====================================================
-   PROJECT BADGES
-===================================================== */
-
-.project-type {
-
-    display: inline-flex;
-
-    padding: 6px 10px;
-
-    margin-bottom: 18px;
-
-    border-radius: 20px;
-
-    font-size: 10px;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-
-    background:
-        rgba(168,85,247,0.08);
-
-    border:
-        1px solid rgba(168,85,247,0.18);
-
-    color: #b56cff;
-
-    position: relative;
-
-    z-index: 1;
 }
 
 
@@ -1277,7 +1443,7 @@ footer {
 
 
 /* =====================================================
-   TECHNOLOGY ANIMATIONS
+   ANIMAÇÕES
 ===================================================== */
 
 @keyframes orbitRotate {
@@ -1461,6 +1627,43 @@ footer {
         right: 3%;
     }
 
+
+    /* Timeline mobile */
+
+    .experience-timeline::before {
+
+        left: 8px;
+
+        transform: none;
+    }
+
+    .timeline-item {
+
+        width: 100%;
+
+        margin-left: 0 !important;
+
+        padding-left: 40px !important;
+
+        padding-right: 0 !important;
+
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+
+        left: 2px;
+
+        right: auto;
+    }
+
+    .timeline-content {
+
+        padding: 23px;
+    }
+
+
     .about-grid {
 
         grid-template-columns: 1fr;
@@ -1495,6 +1698,10 @@ footer {
 
         width: 240px;
         height: 310px;
+    }
+
+    .timeline-content h3 {
+        font-size: 18px;
     }
 }
 
@@ -1758,84 +1965,94 @@ e seguras.
 
 
 <!-- =====================================================
-     EXPERIÊNCIA
+     EXPERIÊNCIA PROFISSIONAL — TIMELINE
 ===================================================== -->
 
 <section id="experiencia">
 
 
-<div class="reveal">
+<div class="experience-intro reveal">
 
 <div class="section-label">
 Experiência profissional
 </div>
 
 <h2 class="section-title">
-Experiência que gera prática.
+Minha trajetória em Tecnologia da Informação.
 </h2>
 
 <p class="section-description">
 
-Minha experiência profissional em suporte técnico,
-infraestrutura de TI e ambientes educacionais.
+Experiência construída na prática, atuando com
+suporte técnico, infraestrutura, sistemas e
+atendimento em ambientes de tecnologia.
 
 </p>
 
 </div>
 
 
-<div class="experience-list">
+<div class="experience-timeline">
 
 
 <!-- UNI7 -->
 
-<div class="experience-card reveal">
+<div class="timeline-item reveal">
 
-<div class="experience-date">
-ATUALMENTE
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<div class="timeline-date">
+Atualmente
 </div>
 
+<div class="timeline-current">
+Experiência atual
+</div>
 
 <h3>
 Centro Universitário 7 de Setembro — UNI7
 </h3>
 
-
-<div class="experience-role">
+<div class="timeline-role">
 Operadora de Computador • Suporte N2
 </div>
-
 
 <p>
 
 Atuação com suporte técnico aos usuários,
 monitoramento de sistemas, realização de backups,
 instalação de softwares e atendimento às demandas
-de tecnologia em um ambiente educacional de alta demanda.
+de tecnologia em um ambiente educacional de
+alta demanda.
 
 </p>
+
+</div>
 
 </div>
 
 
 <!-- FAMEC -->
 
-<div class="experience-card reveal">
+<div class="timeline-item reveal">
 
-<div class="experience-date">
-EXPERIÊNCIA ANTERIOR
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<div class="timeline-date">
+Experiência anterior
 </div>
-
 
 <h3>
 Faculdade Metropolitana do Ceará — FAMEC
 </h3>
 
-
-<div class="experience-role">
+<div class="timeline-role">
 Suporte Técnico • Tecnologia da Informação
 </div>
-
 
 <p>
 
@@ -1848,27 +2065,8 @@ secretaria acadêmica e financeira.
 
 </div>
 
-
 </div>
 
-
-<div class="about-highlight reveal" style="margin-top: 25px;">
-
-<h3>
-Foco profissional
-</h3>
-
-<p>
-
-Atualmente, tenho interesse em ambientes de
-computação em nuvem, especialmente Microsoft Azure.
-Estou ampliando meus conhecimentos em Infraestrutura
-como Serviço (IaaS), gerenciamento de recursos e
-segurança em nuvem, buscando aplicar esses
-conhecimentos de forma prática na minha evolução
-profissional.
-
-</p>
 
 </div>
 
@@ -1903,7 +2101,10 @@ estudos, projetos e interesses profissionais.
 </div>
 
 
-<div class="services-grid" style="margin-top:45px;">
+<div
+    class="services-grid"
+    style="margin-top:45px;"
+>
 
 
 <div class="service-card reveal">
@@ -2084,7 +2285,10 @@ jornada de aprendizado e evolução profissional.
 </div>
 
 
-<div class="projects-grid" style="margin-top:45px;">
+<div
+    class="projects-grid"
+    style="margin-top:45px;"
+>
 
 
 <!-- INCIDENT MANAGER -->
@@ -2120,7 +2324,7 @@ Abrir plataforma →
 </div>
 
 
-<!-- IA -->
+<!-- PROJETOS IA -->
 
 <div class="project-card reveal">
 
@@ -2377,35 +2581,27 @@ function createParticle() {
         "particle"
     );
 
-
     particle.style.left =
         Math.random() * 100 + "vw";
-
 
     particle.style.animationDuration =
         (8 + Math.random() * 14) + "s";
 
-
     particle.style.opacity =
         0.2 + Math.random() * 0.8;
-
 
     const size =
         1 + Math.random() * 3;
 
-
     particle.style.width =
         size + "px";
-
 
     particle.style.height =
         size + "px";
 
-
     document.body.appendChild(
         particle
     );
-
 
     setTimeout(
         () => {
@@ -2441,7 +2637,6 @@ document.addEventListener(
 
         if (!photo) return;
 
-
         const x =
             (
                 event.clientX /
@@ -2449,14 +2644,12 @@ document.addEventListener(
                 0.5
             ) * 8;
 
-
         const y =
             (
                 event.clientY /
                 window.innerHeight -
                 0.5
             ) * 8;
-
 
         photo.style.transform =
             `translate(${x}px, ${y}px)`;
