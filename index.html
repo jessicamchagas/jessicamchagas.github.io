@@ -32,10 +32,6 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   FUNDO
-========================= */
-
 body::before {
     content: "";
     position: fixed;
@@ -393,21 +389,25 @@ section:not(.hero) {
 }
 
 /* =========================
-   TRAJETÓRIA
+   EXPERIÊNCIA PROFISSIONAL
 ========================= */
 
-.timeline {
+.experience {
     margin-top: 50px;
     border-left: 1px solid rgba(168,85,247,0.3);
     padding-left: 35px;
 }
 
-.timeline-item {
+.experience-item {
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: 55px;
 }
 
-.timeline-item::before {
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-item::before {
     content: "";
     position: absolute;
     left: -41px;
@@ -419,21 +419,70 @@ section:not(.hero) {
     box-shadow: 0 0 15px rgba(168,85,247,0.6);
 }
 
-.timeline-year {
+.experience-period {
     color: #a855f7;
     font-size: 13px;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.timeline-item h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+.experience-item h3 {
+    font-size: 21px;
+    margin-bottom: 6px;
 }
 
-.timeline-item p {
+.experience-role {
+    color: #c084fc;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.experience-item p {
     color: #a1a1aa;
-    line-height: 1.7;
+    line-height: 1.8;
+    max-width: 850px;
+}
+
+/* =========================
+   FOCO PROFISSIONAL
+========================= */
+
+.professional-focus {
+    margin-top: 55px;
+    padding: 35px;
+    border: 1px solid rgba(168,85,247,0.2);
+    border-radius: 14px;
+    background: rgba(168,85,247,0.035);
+    position: relative;
+    overflow: hidden;
+}
+
+.professional-focus::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(168,85,247,0.08);
+    filter: blur(55px);
+    right: -60px;
+    top: -70px;
+}
+
+.professional-focus h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #c084fc;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.professional-focus p {
+    color: #a1a1aa;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
 }
 
 /* =========================
@@ -810,7 +859,7 @@ footer span {
         </li>
 
         <li>
-            <a href="#trajetoria">Trajetória</a>
+            <a href="#experiencia">Experiência</a>
         </li>
 
         <li>
@@ -924,21 +973,22 @@ footer span {
             </h2>
 
             <p>
-                Sou Jessica Monteiro, desenvolvedora em formação
-                e apaixonada pelo universo da tecnologia.
+                Sou Jéssica Monteiro Chagas, estudante de Análise e
+                Desenvolvimento de Sistemas e profissional da área de TI,
+                com experiência em suporte técnico, infraestrutura e
+                ambientes educacionais de alta demanda.
             </p>
 
             <p>
-                Minha jornada envolve desenvolvimento de software,
-                Inteligência Artificial, automação e busca constante
-                por novas formas de utilizar a tecnologia para
-                solucionar problemas.
+                Tenho forte interesse por tecnologia de nuvem,
+                Inteligência Artificial, automação, segurança da informação
+                e desenvolvimento web.
             </p>
 
             <p>
-                Acredito que aprender tecnologia é um processo contínuo.
-                Por isso, estou sempre estudando, experimentando
-                novas ferramentas e criando projetos próprios.
+                Sou uma profissional comprometida, proativa e focada em
+                resultados, com perfil autodidata e determinação para
+                continuar evoluindo no ecossistema de tecnologia.
             </p>
 
         </div>
@@ -951,9 +1001,10 @@ footer span {
             </h3>
 
             <p>
-                Meu objetivo é unir programação, inteligência artificial
-                e automação para desenvolver soluções cada vez mais
-                inteligentes, eficientes e úteis.
+                Meu objetivo é unir experiência prática em TI com
+                desenvolvimento, Inteligência Artificial, automação
+                e computação em nuvem para criar soluções cada vez
+                mais inteligentes, eficientes e seguras.
             </p>
 
         </div>
@@ -964,83 +1015,94 @@ footer span {
 
 
 <!-- =========================
-     TRAJETÓRIA
+     EXPERIÊNCIA PROFISSIONAL
 ========================= -->
 
-<section id="trajetoria" class="reveal">
+<section id="experiencia" class="reveal">
 
     <div class="section-label">
-        Trajetória
+        Experiência profissional
     </div>
 
     <h2 class="section-title">
-        Minha jornada na
+        Experiência que gera
         <span style="color:#a855f7;">
-            tecnologia.
+            prática.
         </span>
     </h2>
 
     <p class="section-description">
-        Uma jornada de aprendizado, prática e evolução constante.
+        Minha experiência profissional em suporte técnico,
+        infraestrutura de TI e ambientes educacionais.
     </p>
 
 
-    <div class="timeline">
+    <div class="experience">
 
-        <div class="timeline-item">
+        <div class="experience-item">
 
-            <div class="timeline-year">
-                INÍCIO
-            </div>
-
-            <h3>
-                Primeiros passos
-            </h3>
-
-            <p>
-                Início da jornada no universo da tecnologia,
-                descobrindo programação e desenvolvimento.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                EVOLUÇÃO
-            </div>
-
-            <h3>
-                Desenvolvimento
-            </h3>
-
-            <p>
-                Aprendizado de linguagens, ferramentas,
-                desenvolvimento de projetos e resolução
-                de problemas reais.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
+            <div class="experience-period">
                 ATUALMENTE
             </div>
 
             <h3>
-                IA e Automação
+                Centro Universitário 7 de Setembro — UNI7
             </h3>
 
+            <div class="experience-role">
+                Operadora de Computador • Suporte N2
+            </div>
+
             <p>
-                Exploração de Inteligência Artificial,
-                automação de processos e desenvolvimento
-                de soluções tecnológicas.
+                Atuação com suporte técnico aos usuários,
+                monitoramento de sistemas, realização de backups,
+                instalação de softwares e atendimento às demandas
+                de tecnologia em um ambiente educacional de alta demanda.
             </p>
 
         </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-period">
+                EXPERIÊNCIA ANTERIOR
+            </div>
+
+            <h3>
+                Faculdade Metropolitana do Ceará — FAMEC
+            </h3>
+
+            <div class="experience-role">
+                Suporte Técnico • Tecnologia da Informação
+            </div>
+
+            <p>
+                Atuação com suporte técnico, gerenciamento de
+                equipamentos e auxílio na implementação de soluções
+                de TI, além de atividades junto aos setores de
+                secretaria acadêmica e financeira.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="professional-focus">
+
+        <h3>
+            Foco profissional
+        </h3>
+
+        <p>
+            Atualmente, tenho interesse em ambientes de computação
+            em nuvem, especialmente Microsoft Azure. Estou ampliando
+            meus conhecimentos em Infraestrutura como Serviço (IaaS),
+            gerenciamento de recursos e segurança em nuvem, buscando
+            aplicar esses conhecimentos de forma prática na minha
+            evolução profissional.
+        </p>
 
     </div>
 
@@ -1065,8 +1127,8 @@ footer span {
     </h2>
 
     <p class="section-description">
-        Áreas que fazem parte dos meus estudos, projetos
-        e interesses profissionais.
+        Áreas que fazem parte da minha atuação, estudos,
+        projetos e interesses profissionais.
     </p>
 
 
@@ -1079,12 +1141,13 @@ footer span {
             </div>
 
             <h3>
-                Desenvolvimento
+                Suporte & Infraestrutura
             </h3>
 
             <p>
-                Desenvolvimento de aplicações e soluções
-                utilizando programação e tecnologias modernas.
+                Suporte técnico, monitoramento de sistemas,
+                instalação de softwares, backups, equipamentos
+                e atendimento aos usuários.
             </p>
 
         </div>
@@ -1102,7 +1165,7 @@ footer span {
 
             <p>
                 Exploração de ferramentas de IA para criação,
-                produtividade, análise e desenvolvimento
+                produtividade, automação e desenvolvimento
                 de novas soluções.
             </p>
 
@@ -1116,13 +1179,13 @@ footer span {
             </div>
 
             <h3>
-                Automação
+                Cloud & Automação
             </h3>
 
             <p>
-                Criação de processos automatizados para
-                reduzir tarefas repetitivas e aumentar
-                eficiência.
+                Estudos voltados para computação em nuvem,
+                Microsoft Azure, automação de processos e
+                desenvolvimento de soluções tecnológicas.
             </p>
 
         </div>
@@ -1164,7 +1227,7 @@ footer span {
         <div class="tech-item">Git</div>
         <div class="tech-item">GitHub</div>
         <div class="tech-item">Docker</div>
-        <div class="tech-item">AWS</div>
+        <div class="tech-item">Microsoft Azure</div>
         <div class="tech-item">IA</div>
         <div class="tech-item">Automação</div>
         <div class="tech-item">APIs</div>
