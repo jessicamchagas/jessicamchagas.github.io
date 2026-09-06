@@ -2,54 +2,22 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#050507">
-
-    <meta
-        name="description"
-        content="Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação e Desenvolvimento."
-    >
-
-    <meta
-        name="keywords"
-        content="Jessica Monteiro, tecnologia, inteligência artificial, IA, automação, programação, desenvolvimento"
-    >
-
-    <meta name="author" content="Jessica Monteiro">
-
-    <meta property="og:title" content="Jessica Monteiro | Tecnologia, IA & Automação">
-
-    <meta
-        property="og:description"
-        content="Portfólio profissional de Jessica Monteiro."
-    >
-
-    <meta property="og:type" content="website">
 
     <title>Jessica Monteiro | Tecnologia • IA • Automação</title>
 
-
-    <!-- FONTES -->
+    <meta name="description"
+        content="Portfólio de Jessica Monteiro — Tecnologia, Inteligência Artificial, Automação e Desenvolvimento.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
 
         * {
             margin: 0;
@@ -59,23 +27,13 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
         }
 
         body {
-            min-height: 100vh;
-
+            font-family: 'Inter', sans-serif;
             background: #050507;
-
             color: #ffffff;
-
-            font-family: "Inter", sans-serif;
-
             overflow-x: hidden;
-        }
-
-        body::selection {
-            background: rgba(168, 85, 247, .35);
         }
 
         a {
@@ -83,735 +41,1076 @@
             color: inherit;
         }
 
-        button {
-            font-family: inherit;
-        }
-
-
-        /* =====================================================
-           CURSOR GLOW
-        ===================================================== */
-
-        .cursor-glow {
-            position: fixed;
-
-            width: 350px;
-            height: 350px;
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            background: radial-gradient(
-                circle,
-                rgba(168, 85, 247, .09),
-                transparent 68%
-            );
-
-            transform: translate(-50%, -50%);
-
-            z-index: -1;
-
-            transition:
-                left .15s ease,
-                top .15s ease;
-
-            filter: blur(15px);
-        }
-
-
-        /* =====================================================
+        /* =========================
            FUNDO
-        ===================================================== */
+        ========================= */
 
         body::before {
-
             content: "";
-
             position: fixed;
-
             inset: 0;
-
             pointer-events: none;
-
-            z-index: -10;
+            z-index: -3;
 
             background:
-
                 radial-gradient(
-                    circle at 75% 20%,
-                    rgba(139, 47, 220, .18),
+                    circle at 15% 20%,
+                    rgba(130, 40, 255, 0.16),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(90, 0, 255, 0.12),
                     transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 15% 75%,
-                    rgba(98, 38, 160, .12),
-                    transparent 32%
-                ),
-
-                #050507;
-
+                );
         }
 
-
-        /* GRID */
-
         body::after {
-
             content: "";
-
             position: fixed;
-
             inset: 0;
-
             pointer-events: none;
-
-            z-index: -9;
-
-            opacity: .20;
+            z-index: -2;
 
             background-image:
-
                 linear-gradient(
-                    rgba(168, 85, 247, .08) 1px,
+                    rgba(255,255,255,0.025) 1px,
                     transparent 1px
                 ),
-
                 linear-gradient(
                     90deg,
-                    rgba(168, 85, 247, .08) 1px,
+                    rgba(255,255,255,0.025) 1px,
                     transparent 1px
                 );
 
-            background-size: 55px 55px;
-
+            background-size: 50px 50px;
             mask-image: linear-gradient(
                 to bottom,
                 black,
                 transparent 85%
             );
-
         }
 
+        /* =========================
+           CURSOR GLOW
+        ========================= */
 
-        /* =====================================================
-           PARTÍCULAS
-        ===================================================== */
-
-        .particles {
-
+        #cursorGlow {
             position: fixed;
-
-            inset: 0;
-
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
             pointer-events: none;
+            z-index: -1;
 
-            z-index: -5;
+            background: radial-gradient(
+                circle,
+                rgba(139, 48, 255, 0.11),
+                transparent 65%
+            );
 
-            overflow: hidden;
+            transform: translate(-50%, -50%);
+            transition: left 0.08s linear, top 0.08s linear;
+        }
 
+        /* =========================
+           PARTÍCULAS
+        ========================= */
+
+        #particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .particle {
-
             position: absolute;
-
             width: 2px;
             height: 2px;
-
-            background: #ffffff;
-
+            background: rgba(180, 100, 255, 0.55);
             border-radius: 50%;
-
-            opacity: .35;
-
-            animation: particleMove linear infinite;
-
+            animation: particleFloat linear infinite;
         }
 
-        @keyframes particleMove {
+        @keyframes particleFloat {
 
-            from {
-                transform: translateY(110vh);
+            0% {
+                transform: translateY(0);
+                opacity: 0;
             }
 
-            to {
-                transform: translateY(-10vh);
+            20% {
+                opacity: 1;
             }
 
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
         }
 
-
-        /* =====================================================
+        /* =========================
            NAVBAR
-        ===================================================== */
+        ========================= */
 
         nav {
-
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
+            height: 80px;
 
-            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
             padding: 0 7%;
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
             z-index: 1000;
 
-            background: rgba(5, 5, 7, .72);
-
+            background: rgba(5, 5, 7, 0.72);
             backdrop-filter: blur(18px);
 
-            border-bottom: 1px solid rgba(168, 85, 247, .10);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
 
-            transition: .3s ease;
-
+            transition: 0.3s ease;
         }
 
         nav.scrolled {
-
-            background: rgba(5, 5, 7, .92);
-
-            box-shadow:
-                0 10px 40px rgba(0, 0, 0, .25);
-
+            background: rgba(5, 5, 7, 0.92);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.35);
         }
 
-
-        /* LOGO */
-
         .logo {
-
-            font-family: "Orbitron", sans-serif;
-
+            font-family: 'Orbitron', sans-serif;
             font-size: 20px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
+            font-weight: 800;
+            letter-spacing: 3px;
 
             color: #ffffff;
-
-            text-shadow:
-                0 0 15px rgba(168, 85, 247, .55);
-
         }
 
         .logo span {
             color: #a855f7;
         }
 
-
-        /* MENU */
-
         .nav-links {
-
             display: flex;
-
-            align-items: center;
-
-            gap: 32px;
-
+            gap: 30px;
             list-style: none;
-
         }
 
         .nav-links a {
-
             position: relative;
 
             font-size: 13px;
-
             font-weight: 500;
+            color: #aaa;
 
-            color: #a8a8b2;
-
-            transition: .3s ease;
-
+            transition: 0.3s ease;
         }
 
         .nav-links a:hover {
-
             color: #ffffff;
-
         }
 
         .nav-links a::after {
-
             content: "";
-
             position: absolute;
 
             left: 0;
-
-            bottom: -9px;
+            bottom: -8px;
 
             width: 0;
-
             height: 2px;
 
             background: #a855f7;
 
-            box-shadow:
-                0 0 12px #a855f7;
-
-            transition: .3s ease;
-
+            transition: 0.3s ease;
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
+        /* =========================
+           GERAL
+        ========================= */
 
-        /* =====================================================
+        section {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 120px 7%;
+        }
+
+        .section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #a855f7;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(30px, 5vw, 55px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .section-description {
+            max-width: 720px;
+            color: #9a9a9f;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* =========================
            HERO
-        ===================================================== */
+        ========================= */
 
         .hero {
-
             min-height: 100vh;
 
-            padding:
-                130px 8%
-                90px;
-
             display: grid;
-
-            grid-template-columns:
-                minmax(0, 1fr)
-                minmax(380px, .85fr);
+            grid-template-columns: 1.05fr 0.95fr;
 
             align-items: center;
 
-            gap: 60px;
+            gap: 50px;
 
-            position: relative;
-
+            padding-top: 120px;
         }
-
-
-        /* TEXTO */
 
         .hero-content {
-
-            max-width: 720px;
-
-            animation:
-                heroText 1s cubic-bezier(.2,.8,.2,1)
-                forwards;
-
+            position: relative;
+            z-index: 5;
         }
-
-        @keyframes heroText {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateX(-45px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateX(0);
-
-            }
-
-        }
-
-
-        /* TAG */
 
         .hero-tag {
-
             display: inline-flex;
-
             align-items: center;
 
-            gap: 10px;
+            padding: 9px 15px;
 
-            padding:
-                9px 16px;
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            border-radius: 30px;
 
-            border-radius: 100px;
-
-            border:
-                1px solid
-                rgba(168, 85, 247, .35);
-
-            background:
-                rgba(168, 85, 247, .05);
-
-            color: #c084fc;
+            color: #c58aff;
+            background: rgba(168, 85, 247, 0.06);
 
             font-size: 11px;
-
-            letter-spacing: 1.8px;
-
+            letter-spacing: 2px;
             text-transform: uppercase;
 
+            margin-bottom: 25px;
+
+            animation: fadeUp 1s ease both;
         }
-
-        .hero-tag::before {
-
-            content: "";
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: #a855f7;
-
-            box-shadow:
-                0 0 12px #a855f7;
-
-            animation:
-                pulse 1.8s infinite;
-
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.7);
-                opacity: .5;
-            }
-
-        }
-
-
-        /* TITULO */
 
         .hero h1 {
+            font-family: 'Orbitron', sans-serif;
 
-            margin-top: 28px;
+            font-size: clamp(45px, 6vw, 82px);
 
-            font-family: "Orbitron", sans-serif;
+            line-height: 0.98;
 
-            font-size:
-                clamp(43px, 6vw, 78px);
-
-            line-height: 1.04;
+            max-width: 850px;
 
             letter-spacing: -3px;
 
-            font-weight: 700;
-
+            animation: fadeUp 1s 0.1s ease both;
         }
 
-        .hero h1 .purple {
+        .hero h1 span {
+            display: block;
 
-            color: #a855f7;
+            color: transparent;
 
-            text-shadow:
-                0 0 25px
-                rgba(168, 85, 247, .42);
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #a855f7,
+                #d8b4fe
+            );
 
+            -webkit-background-clip: text;
+            background-clip: text;
         }
-
-
-        /* LINHA */
-
-        .title-line {
-
-            width: 95px;
-
-            height: 4px;
-
-            margin:
-                27px 0;
-
-            border-radius: 10px;
-
-            background: #a855f7;
-
-            box-shadow:
-                0 0 20px
-                rgba(168, 85, 247, .8);
-
-            animation:
-                lineGrow 1.2s ease forwards;
-
-        }
-
-        @keyframes lineGrow {
-
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 95px;
-            }
-
-        }
-
-
-        /* DESCRIÇÃO */
 
         .hero-description {
+            max-width: 620px;
 
-            max-width: 630px;
-
-            color: #a3a3af;
+            color: #99999f;
 
             font-size: 16px;
+            line-height: 1.8;
 
-            line-height: 1.85;
+            margin-top: 30px;
 
-            margin-bottom: 35px;
-
+            animation: fadeUp 1s 0.2s ease both;
         }
 
-
-        /* BOTÕES */
-
         .hero-buttons {
-
             display: flex;
-
-            gap: 14px;
-
+            gap: 15px;
             flex-wrap: wrap;
 
+            margin-top: 35px;
+
+            animation: fadeUp 1s 0.3s ease both;
         }
 
         .btn {
-
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
 
             min-height: 48px;
 
-            padding:
-                0 23px;
+            padding: 0 24px;
 
             border-radius: 8px;
 
             font-size: 13px;
-
             font-weight: 600;
 
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease,
-                background .3s ease;
+            transition: 0.3s ease;
 
+            cursor: pointer;
         }
 
-        .btn-primary {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #8436ce,
-                    #a855f7
-                );
-
-            box-shadow:
-                0 0 25px
-                rgba(168, 85, 247, .22);
-
-        }
-
-        .btn-primary:hover {
-
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                0 0 35px
-                rgba(168, 85, 247, .48);
-
-        }
-
-        .btn-outline {
-
-            border:
-                1px solid
-                rgba(168, 85, 247, .42);
-
-            background:
-                rgba(168, 85, 247, .025);
-
+        .btn.primary {
+            background: #a855f7;
             color: #ffffff;
 
+            box-shadow:
+                0 0 25px rgba(168, 85, 247, 0.25);
         }
 
-        .btn-outline:hover {
-
-            transform:
-                translateY(-4px);
-
-            background:
-                rgba(168, 85, 247, .10);
+        .btn.primary:hover {
+            transform: translateY(-4px);
 
             box-shadow:
-                0 0 25px
-                rgba(168, 85, 247, .18);
-
+                0 0 40px rgba(168, 85, 247, 0.5);
         }
 
+        .btn.secondary {
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #ffffff;
+            background: rgba(255,255,255,0.025);
+        }
 
-        /* =====================================================
+        .btn.secondary:hover {
+            border-color: #a855f7;
+            color: #d8b4fe;
+
+            transform: translateY(-4px);
+        }
+
+        /* =========================
            FOTO
-        ===================================================== */
+        ========================= */
 
-        .hero-image {
-
+        .hero-photo {
             position: relative;
 
-            min-height: 580px;
+            min-height: 600px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            animation:
-                photoEntrance 1.2s
-                cubic-bezier(.2,.8,.2,1)
-                forwards;
-
         }
-
-        @keyframes photoEntrance {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateX(50px)
-                    scale(.94);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateX(0)
-                    scale(1);
-
-            }
-
-        }
-
-
-        /* BRILHO ATRÁS DA FOTO */
 
         .photo-glow {
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: radial-gradient(
+                circle,
+                rgba(168, 85, 247, 0.28),
+                transparent 65%
+            );
+
+            filter: blur(25px);
+
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        .photo-frame {
+            position: relative;
+
+            width: min(430px, 85vw);
+            height: 540px;
+
+            overflow: hidden;
+
+            border-radius: 50% 50% 45% 45%;
+
+            border: 1px solid rgba(168, 85, 247, 0.65);
+
+            background: #101014;
+
+            box-shadow:
+                0 0 80px rgba(168, 85, 247, 0.18),
+                inset 0 0 60px rgba(168, 85, 247, 0.08);
+
+            animation:
+                photoEnter 1.2s 0.2s ease both,
+                photoFloat 6s ease-in-out infinite;
+        }
+
+        .photo-frame::before {
+            content: "";
+
+            position: absolute;
+            inset: 12px;
+
+            border-radius: inherit;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .photo-frame::after {
+            content: "";
 
             position: absolute;
 
-            width: 430px;
+            width: 180%;
+            height: 35%;
+
+            left: -40%;
+            top: -20%;
+
+            background: linear-gradient(
+                transparent,
+                rgba(168, 85, 247, 0.13),
+                transparent
+            );
+
+            transform: rotate(25deg);
+
+            animation: scan 5s linear infinite;
+
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            filter:
+                grayscale(100%)
+                contrast(1.08)
+                brightness(0.92);
+
+            transform: scale(1.03);
+
+            transition: 0.6s ease;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.07);
+            filter:
+                grayscale(70%)
+                contrast(1.08)
+                brightness(0.95);
+        }
+
+        /* =========================
+           ÓRBITA
+        ========================= */
+
+        .orbit {
+            position: absolute;
+
+            width: 550px;
             height: 550px;
 
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    ellipse,
-                    rgba(168, 85, 247, .27),
-                    transparent 66%
-                );
-
-            filter: blur(35px);
-
-            animation:
-                glowPulse 4s ease-in-out infinite;
-
-        }
-
-        @keyframes glowPulse {
-
-            0%,
-            100% {
-
-                transform:
-                    scale(1);
-
-                opacity: .7;
-
-            }
-
-            50% {
-
-                transform:
-                    scale(1.08);
-
-                opacity: 1;
-
-            }
-
-        }
-
-
-        /* MOLDURA */
-
-        .photo-frame {
-
-            position: relative;
-
-            width:
-                min(385px, 78vw);
-
-            height: 520px;
-
-            padding: 5px;
+            border: 1px solid rgba(168, 85, 247, 0.15);
 
             border-radius: 50%;
+
+            animation: spin 18s linear infinite;
+        }
+
+        .orbit::before,
+        .orbit::after {
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #a855f7;
+
+            box-shadow:
+                0 0 20px #a855f7,
+                0 0 40px rgba(168,85,247,0.5);
+        }
+
+        .orbit::before {
+            top: 25px;
+            left: 50%;
+        }
+
+        .orbit::after {
+            bottom: 45px;
+            right: 35px;
+        }
+
+        /* =========================
+           ELEMENTOS FLUTUANTES
+        ========================= */
+
+        .tech-orb {
+            position: absolute;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 62px;
+            height: 62px;
+
+            border-radius: 18px;
+
+            background: rgba(10,10,14,0.85);
+
+            border: 1px solid rgba(168,85,247,0.35);
+
+            box-shadow:
+                0 0 30px rgba(168,85,247,0.12);
+
+            color: #c58aff;
+
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+
+            backdrop-filter: blur(10px);
+
+            z-index: 5;
+        }
+
+        .orb-one {
+            top: 16%;
+            left: 5%;
+
+            animation: floatOne 5s ease-in-out infinite;
+        }
+
+        .orb-two {
+            top: 18%;
+            right: 2%;
+
+            animation: floatTwo 6s ease-in-out infinite;
+        }
+
+        .orb-three {
+            bottom: 15%;
+            right: 8%;
+
+            animation: floatThree 5.5s ease-in-out infinite;
+        }
+
+        /* =========================
+           SOBRE
+        ========================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-box {
+            padding: 35px;
+
+            border: 1px solid rgba(255,255,255,0.07);
 
             background:
                 linear-gradient(
                     145deg,
-                    #c084fc,
-                    rgba(87, 27, 144, .25),
-                    #8b35d9
+                    rgba(168,85,247,0.08),
+                    rgba(255,255,255,0.015)
                 );
 
+            border-radius: 18px;
+
+            transition: 0.4s ease;
+        }
+
+        .about-box:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(168,85,247,0.35);
+
             box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+        }
 
-                0 0 30px
-                rgba(168, 85, 247, .25),
+        .about-box h3 {
+            font-family: 'Orbitron', sans-serif;
 
-                inset 0 0 30px
-                rgba(168, 85, 247, .10);
+            font-size: 20px;
 
-            animation:
-                photoFloat 6s ease-in-out infinite;
+            margin-bottom: 18px;
+        }
 
-            z-index: 2;
+        .about-box p {
+            color: #99999f;
 
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           TRAJETÓRIA
+        ========================= */
+
+        .timeline {
+            margin-top: 55px;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .timeline-card {
+            padding: 30px;
+
+            border-left: 2px solid #a855f7;
+
+            background: rgba(255,255,255,0.025);
+
+            transition: 0.4s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-7px);
+
+            background: rgba(168,85,247,0.06);
+        }
+
+        .timeline-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-card p {
+            color: #92929a;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           SERVIÇOS
+        ========================= */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-top: 55px;
+        }
+
+        .service-card {
+            position: relative;
+
+            padding: 35px;
+
+            min-height: 230px;
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            background: rgba(255,255,255,0.02);
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            transition: 0.4s ease;
+        }
+
+        .service-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: rgba(168,85,247,0.12);
+
+            filter: blur(40px);
+
+            top: -100px;
+            right: -100px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+
+            border-color: rgba(168,85,247,0.4);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .service-number {
+            color: #a855f7;
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #92929a;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           TECNOLOGIAS
+        ========================= */
+
+        .tech-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-top: 50px;
+        }
+
+        .tech-item {
+            padding: 25px 20px;
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,0.02);
+
+            text-align: center;
+
+            transition: 0.35s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(168,85,247,0.45);
+
+            background: rgba(168,85,247,0.06);
+
+            box-shadow:
+                0 10px 35px rgba(168,85,247,0.08);
+        }
+
+        .tech-item strong {
+            display: block;
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 13px;
+
+            margin-bottom: 7px;
+        }
+
+        .tech-item span {
+            color: #77777f;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           PROJETOS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+            margin-top: 55px;
+        }
+
+        .project-card {
+            position: relative;
+
+            min-height: 300px;
+
+            padding: 35px;
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(168,85,247,0.07),
+                    rgba(255,255,255,0.015)
+                );
+
+            overflow: hidden;
+
+            transition: 0.45s ease;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: rgba(168,85,247,0.08);
+
+            filter: blur(60px);
+
+            right: -180px;
+            bottom: -180px;
+
+            transition: 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+
+            border-color: rgba(168,85,247,0.45);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.4);
+        }
+
+        .project-card:hover::before {
+            transform: scale(1.5);
+        }
+
+        .project-number {
+            font-family: 'Orbitron', sans-serif;
+
+            color: #a855f7;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 35px;
+        }
+
+        .project-card h3 {
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 23px;
+
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #92929a;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            max-width: 500px;
+        }
+
+        .project-link {
+            display: inline-flex;
+
+            margin-top: 25px;
+
+            color: #c58aff;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+
+            transform: translateX(5px);
+        }
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        .contact {
+            text-align: center;
+
+            position: relative;
+        }
+
+        .contact::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: rgba(168,85,247,0.08);
+
+            filter: blur(100px);
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            z-index: -1;
+        }
+
+        .contact .section-description {
+            margin: auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 35px;
+        }
+
+        .contact-email {
+            display: block;
+
+            margin-top: 30px;
+
+            color: #a855f7;
+
+            font-size: 14px;
+
+            transition: 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: #ffffff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px 7%;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+
+            text-align: center;
+
+            color: #66666e;
+
+            font-size: 11px;
+
+            letter-spacing: 0.5px;
+        }
+
+        footer span {
+            color: #a855f7;
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes photoEnter {
+
+            from {
+                opacity: 0;
+                transform: translateX(70px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
         }
 
         @keyframes photoFloat {
@@ -822,1371 +1121,295 @@
             }
 
             50% {
-                transform: translateY(-11px);
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: scale(0.95);
             }
 
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
         }
 
-
-        /* ANEL EXTERNO */
-
-        .photo-frame::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: -18px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(168, 85, 247, .28);
-
-            border-left-color:
-                transparent;
-
-            animation:
-                rotateRing 18s linear infinite;
-
-        }
-
-        @keyframes rotateRing {
+        @keyframes spin {
 
             from {
-                transform: rotate(0);
+                transform: rotate(0deg);
             }
 
             to {
                 transform: rotate(360deg);
             }
-
         }
 
+        @keyframes scan {
 
-        /* SEGUNDO ANEL */
+            0% {
+                top: -40%;
+            }
 
-        .photo-frame::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: -32px;
-
-            border-radius: 50%;
-
-            border:
-                1px dashed
-                rgba(168, 85, 247, .10);
-
-            animation:
-                rotateRing 28s linear infinite reverse;
-
+            100% {
+                top: 120%;
+            }
         }
 
-
-        /* FOTO */
-
-        .photo-frame img {
-
-            width: 100%;
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            border-radius: 50%;
-
-            filter:
-                grayscale(100%)
-                contrast(1.06)
-                brightness(.95);
-
-        }
-
-
-        /* =====================================================
-           ELEMENTOS FLUTUANTES
-        ===================================================== */
-
-        .tech-orb {
-
-            position: absolute;
-
-            width: 56px;
-            height: 56px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 15px;
-
-            border:
-                1px solid
-                rgba(168, 85, 247, .48);
-
-            background:
-                rgba(11, 8, 16, .78);
-
-            backdrop-filter:
-                blur(12px);
-
-            color: #c084fc;
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size: 12px;
-
-            box-shadow:
-                0 0 25px
-                rgba(168, 85, 247, .14);
-
-            z-index: 5;
-
-        }
-
-        .orb-one {
-
-            top: 17%;
-            left: 5%;
-
-            animation:
-                orbOne 5s ease-in-out infinite;
-
-        }
-
-        .orb-two {
-
-            right: 2%;
-            top: 34%;
-
-            animation:
-                orbTwo 6s ease-in-out infinite;
-
-        }
-
-        .orb-three {
-
-            bottom: 16%;
-            left: 11%;
-
-            animation:
-                orbThree 5.5s ease-in-out infinite;
-
-        }
-
-        @keyframes orbOne {
+        @keyframes floatOne {
 
             0%,
             100% {
-                transform:
-                    translateY(0)
-                    rotate(-5deg);
+                transform: translateY(0) rotate(-5deg);
             }
 
             50% {
-                transform:
-                    translateY(-18px)
-                    rotate(5deg);
+                transform: translateY(-20px) rotate(5deg);
             }
-
         }
 
-        @keyframes orbTwo {
+        @keyframes floatTwo {
 
             0%,
             100% {
-                transform:
-                    translate(0,0);
+                transform: translateY(0) rotate(5deg);
             }
 
             50% {
-                transform:
-                    translate(12px,-15px);
+                transform: translateY(20px) rotate(-5deg);
             }
-
         }
 
-        @keyframes orbThree {
+        @keyframes floatThree {
 
             0%,
             100% {
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
 
             50% {
-                transform:
-                    translateY(14px);
+                transform: translateY(-18px);
             }
-
         }
 
-
-        /* =====================================================
-           SEÇÕES
-        ===================================================== */
-
-        section {
-
-            padding:
-                115px 8%;
-
-            position: relative;
-
-        }
-
-
-        .section-header {
-
-            max-width: 720px;
-
-            margin-bottom: 55px;
-
-        }
-
-
-        .section-label {
-
-            color: #a855f7;
-
-            font-size: 11px;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .section-title {
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size:
-                clamp(30px, 4vw, 49px);
-
-            line-height: 1.15;
-
-            margin-bottom: 18px;
-
-        }
-
-
-        .section-description {
-
-            color: #90909b;
-
-            line-height: 1.8;
-
-            font-size: 15px;
-
-        }
-
-
-        /* =====================================================
-           SOBRE
-        ===================================================== */
-
-        .about-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1.1fr
-                .9fr;
-
-            gap: 50px;
-
-            align-items: start;
-
-        }
-
-
-        .about-text {
-
-            color: #a3a3ad;
-
-            font-size: 15px;
-
-            line-height: 1.95;
-
-        }
-
-        .about-text p + p {
-
-            margin-top: 22px;
-
-        }
-
-
-        .about-highlight {
-
-            margin-top: 30px;
-
-            padding: 20px 22px;
-
-            border-left:
-                3px solid #a855f7;
-
-            background:
-                rgba(168, 85, 247, .045);
-
-            color: #c4c4cc;
-
-            border-radius:
-                0 10px 10px 0;
-
-        }
-
-
-        .info-cards {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 15px;
-
-        }
-
-
-        .info-card {
-
-            padding: 28px 23px;
-
-            border:
-                1px solid
-                rgba(168, 85, 247, .13);
-
-            border-radius: 14px;
-
-            background:
-                rgba(255,255,255,.015);
-
-            transition:
-                .35s ease;
-
-        }
-
-
-        .info-card:hover {
-
-            transform:
-                translateY(-7px);
-
-            border-color:
-                rgba(168, 85, 247, .45);
-
-            box-shadow:
-                0 15px 40px
-                rgba(168, 85, 247, .08);
-
-        }
-
-
-        .info-icon {
-
-            color: #c084fc;
-
-            font-size: 24px;
-
-            margin-bottom: 17px;
-
-        }
-
-
-        .info-card h3 {
-
-            font-size: 15px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .info-card p {
-
-            color: #7f7f8a;
-
-            font-size: 12px;
-
-            line-height: 1.65;
-
-        }
-
-
-        /* =====================================================
-           TRAJETÓRIA
-        ===================================================== */
-
-        .timeline {
-
-            position: relative;
-
-            max-width: 900px;
-
-            margin: auto;
-
-        }
-
-
-        .timeline::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 20px;
-
-            top: 0;
-            bottom: 0;
-
-            width: 1px;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    #a855f7,
-                    rgba(168,85,247,.08)
-                );
-
-        }
-
-
-        .timeline-item {
-
-            position: relative;
-
-            padding-left: 65px;
-
-            margin-bottom: 48px;
-
-        }
-
-
-        .timeline-dot {
-
-            position: absolute;
-
-            left: 12px;
-
-            top: 3px;
-
-            width: 17px;
-            height: 17px;
-
-            border-radius: 50%;
-
-            background: #a855f7;
-
-            border:
-                4px solid #050507;
-
-            box-shadow:
-                0 0 0 1px #a855f7,
-                0 0 20px
-                rgba(168,85,247,.55);
-
-        }
-
-
-        .timeline-year {
-
-            display: inline-block;
-
-            margin-bottom: 10px;
-
-            color: #a855f7;
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-        }
-
-
-        .timeline-item h3 {
-
-            font-size: 20px;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .timeline-item p {
-
-            color: #888893;
-
-            font-size: 14px;
-
-            line-height: 1.8;
-
-            max-width: 700px;
-
-        }
-
-
-        /* =====================================================
-           O QUE EU FAÇO
-        ===================================================== */
-
-        .services {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 20px;
-
-        }
-
-
-        .service {
-
-            position: relative;
-
-            padding: 35px 28px;
-
-            min-height: 270px;
-
-            border:
-                1px solid
-                rgba(168,85,247,.14);
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.025),
-                    rgba(168,85,247,.025)
-                );
-
-            transition:
-                .4s ease;
-
-        }
-
-
-        .service::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            right: -90px;
-            top: -90px;
-
-            border-radius: 50%;
-
-            background: #a855f7;
-
-            opacity: .07;
-
-            filter: blur(50px);
-
-        }
-
-
-        .service:hover {
-
-            transform:
-                translateY(-9px);
-
-            border-color:
-                rgba(168,85,247,.48);
-
-            box-shadow:
-                0 20px 55px
-                rgba(168,85,247,.08);
-
-        }
-
-
-        .service-number {
-
-            font-family: "Orbitron", sans-serif;
-
-            color: rgba(168,85,247,.6);
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 28px;
-
-        }
-
-
-        .service-icon {
-
-            font-size: 28px;
-
-            color: #c084fc;
-
-            margin-bottom: 20px;
-
-        }
-
-
-        .service h3 {
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size: 18px;
-
-            margin-bottom: 13px;
-
-        }
-
-
-        .service p {
-
-            color: #858590;
-
-            font-size: 13px;
-
-            line-height: 1.75;
-
-        }
-
-
-        /* =====================================================
-           TECNOLOGIAS
-        ===================================================== */
-
-        .skills {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            gap: 18px;
-
-        }
-
-
-        .skill {
-
-            padding: 29px 22px;
-
-            border:
-                1px solid
-                rgba(168,85,247,.13);
-
-            border-radius: 14px;
-
-            background:
-                rgba(255,255,255,.015);
-
-            transition:
-                .35s ease;
-
-        }
-
-
-        .skill:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(168,85,247,.45);
-
-            box-shadow:
-                0 15px 40px
-                rgba(168,85,247,.07);
-
-        }
-
-
-        .skill-icon {
-
-            font-family: "Orbitron", sans-serif;
-
-            color: #b96dff;
-
-            font-size: 20px;
-
-            margin-bottom: 17px;
-
-        }
-
-
-        .skill h3 {
-
-            font-size: 15px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .skill p {
-
-            color: #7e7e89;
-
-            font-size: 12px;
-
-            line-height: 1.65;
-
-        }
-
-
-        /* =====================================================
-           PROJETOS
-        ===================================================== */
-
-        .projects {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 20px;
-
-        }
-
-
-        .project {
-
-            position: relative;
-
-            min-height: 245px;
-
-            padding: 30px;
-
-            border:
-                1px solid
-                rgba(168,85,247,.13);
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.025),
-                    rgba(168,85,247,.025)
-                );
-
-            transition:
-                .4s ease;
-
-        }
-
-
-        .project:hover {
-
-            transform:
-                translateY(-9px);
-
-            border-color:
-                rgba(168,85,247,.45);
-
-            box-shadow:
-                0 20px 55px
-                rgba(168,85,247,.08);
-
-        }
-
-
-        .project-number {
-
-            color: #a855f7;
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 24px;
-
-        }
-
-
-        .project h3 {
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size: 20px;
-
-            margin-bottom: 14px;
-
-        }
-
-
-        .project p {
-
-            color: #858590;
-
-            font-size: 13px;
-
-            line-height: 1.75;
-
-        }
-
-
-        .project-link {
-
-            display: inline-flex;
-
-            margin-top: 23px;
-
-            color: #c084fc;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            transition: .3s ease;
-
-        }
-
-
-        .project-link:hover {
-
-            transform:
-                translateX(5px);
-
-            color: #ffffff;
-
-        }
-
-
-        /* =====================================================
-           CONTATO
-        ===================================================== */
-
-        .contact-box {
-
-            position: relative;
-
-            padding:
-                75px 40px;
-
-            border:
-                1px solid
-                rgba(168,85,247,.22);
-
-            border-radius: 22px;
-
-            text-align: center;
-
-            overflow: hidden;
-
-            background:
-
-                radial-gradient(
-                    circle at center,
-                    rgba(168,85,247,.12),
-                    rgba(168,85,247,.025) 45%,
-                    transparent 75%
-                );
-
-        }
-
-
-        .contact-box::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            top: -300px;
-            left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(168,85,247,.08);
-
-        }
-
-
-        .contact-box h2 {
-
-            font-family: "Orbitron", sans-serif;
-
-            font-size:
-                clamp(30px,5vw,52px);
-
-            margin-bottom: 17px;
-
-        }
-
-
-        .contact-box p {
-
-            color: #92929c;
-
-            margin-bottom: 30px;
-
-            font-size: 14px;
-
-        }
-
-
-        .contact-links {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 13px;
-
-            flex-wrap: wrap;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-
-            padding:
-                30px 8%;
-
-            text-align: center;
-
-            color: #62626c;
-
-            font-size: 11px;
-
-            border-top:
-                1px solid
-                rgba(168,85,247,.09);
-
-        }
-
-
-        footer span {
-
-            color: #a855f7;
-
-        }
-
-
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
+        /* =========================
+           REVEAL AO ROLAR
+        ========================= */
 
         .reveal {
-
             opacity: 0;
 
-            transform:
-                translateY(35px);
+            transform: translateY(35px);
 
             transition:
-                opacity .8s ease,
-                transform .8s ease;
-
+                opacity 0.8s ease,
+                transform 0.8s ease;
         }
-
 
         .reveal.active {
-
             opacity: 1;
 
-            transform:
-                translateY(0);
-
+            transform: translateY(0);
         }
 
-
-        /* DELAYS */
-
-        .delay-1 {
-            transition-delay: .1s;
-        }
-
-        .delay-2 {
-            transition-delay: .2s;
-        }
-
-        .delay-3 {
-            transition-delay: .3s;
-        }
-
-        .delay-4 {
-            transition-delay: .4s;
-        }
-
-
-        /* =====================================================
+        /* =========================
            RESPONSIVO
-        ===================================================== */
+        ========================= */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1000px) {
 
             .hero {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
 
                 text-align: center;
-
-                gap: 30px;
-
             }
 
             .hero-content {
-
-                margin: auto;
-
-            }
-
-            .hero-buttons {
-
-                justify-content: center;
-
-            }
-
-            .title-line {
-
-                margin-left: auto;
-                margin-right: auto;
-
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .hero-description {
-
                 margin-left: auto;
                 margin-right: auto;
-
             }
 
-            .hero-image {
-
-                min-height: 530px;
-
+            .hero-photo {
+                min-height: 550px;
             }
 
             .about-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
 
-            .services {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
+            .timeline {
+                grid-template-columns: 1fr;
             }
 
-            .skills {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
+            .tech-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
         }
 
-
-        @media (max-width: 700px) {
+        @media (max-width: 760px) {
 
             nav {
-
-                height: 68px;
-
-                padding:
-                    0 6%;
-
+                padding: 0 5%;
             }
 
             .nav-links {
-
                 display: none;
-
             }
 
             section {
-
                 padding:
-                    80px 6%;
-
+                    90px 6%;
             }
 
             .hero {
-
-                min-height: auto;
-
-                padding:
-                    120px 6%
-                    70px;
-
+                padding-top: 120px;
             }
 
             .hero h1 {
+                font-size: clamp(38px, 11vw, 58px);
 
-                font-size: 42px;
-
-                letter-spacing:
-                    -2px;
-
+                letter-spacing: -2px;
             }
 
             .hero-description {
-
                 font-size: 14px;
-
             }
 
-            .hero-image {
+            .hero-buttons {
+                justify-content: center;
+            }
 
-                min-height: 450px;
-
-                margin-top: 20px;
-
+            .hero-photo {
+                min-height: 480px;
             }
 
             .photo-frame {
-
-                width: 285px;
-
-                height: 400px;
-
+                width: min(330px, 82vw);
+                height: 430px;
             }
 
-            .photo-glow {
-
-                width: 300px;
-
-                height: 420px;
-
+            .orbit {
+                width: 400px;
+                height: 400px;
             }
 
             .tech-orb {
-
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
 
                 font-size: 10px;
+            }
 
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-frame {
+                width: 290px;
+                height: 390px;
+            }
+
+            .orbit {
+                width: 340px;
+                height: 340px;
             }
 
             .orb-one {
-
-                left: 1%;
-
+                left: 0;
             }
 
             .orb-two {
-
-                right: 1%;
-
+                right: 0;
             }
 
             .orb-three {
-
-                left: 5%;
-
+                right: 0;
             }
-
-            .info-cards {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .services {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .skills {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .projects {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .timeline::before {
-
-                left: 10px;
-
-            }
-
-            .timeline-item {
-
-                padding-left:
-                    40px;
-
-            }
-
-            .timeline-dot {
-
-                left: 2px;
-
-            }
-
-            .contact-box {
-
-                padding:
-                    55px 22px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           REDUZIR ANIMAÇÕES
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .01ms !important;
-
-                scroll-behavior:
-                    auto !important;
-
-            }
-
         }
 
     </style>
-
 </head>
-
 
 <body>
 
+    <!-- =========================
+         EFEITOS DE FUNDO
+    ========================= -->
 
-    <!-- =====================================================
-         CURSOR
-    ===================================================== -->
-
-    <div
-        class="cursor-glow"
-        id="cursorGlow"
-    ></div>
+    <div id="particles"></div>
+    <div id="cursorGlow"></div>
 
 
-    <!-- =====================================================
-         PARTÍCULAS
-    ===================================================== -->
-
-    <div
-        class="particles"
-        id="particles"
-    ></div>
-
-
-    <!-- =====================================================
-         NAV
-    ===================================================== -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
     <nav id="navbar">
 
-        <a
-            href="#inicio"
-            class="logo"
-        >
+        <a href="#inicio" class="logo">
             JESSICA<span>.</span>
         </a>
-
 
         <ul class="nav-links">
 
             <li>
-                <a href="#inicio">
-                    Início
-                </a>
+                <a href="#inicio">Início</a>
             </li>
 
             <li>
-                <a href="#sobre">
-                    Sobre
-                </a>
+                <a href="#sobre">Sobre</a>
             </li>
 
             <li>
-                <a href="#trajetoria">
-                    Trajetória
-                </a>
+                <a href="#trajetoria">Trajetória</a>
             </li>
 
             <li>
-                <a href="#servicos">
-                    O que faço
-                </a>
+                <a href="#servicos">O que faço</a>
             </li>
 
             <li>
-                <a href="#tecnologias">
-                    Tecnologias
-                </a>
+                <a href="#tecnologias">Tecnologias</a>
             </li>
 
             <li>
-                <a href="#projetos">
-                    Projetos
-                </a>
+                <a href="#projetos">Projetos</a>
             </li>
 
             <li>
-                <a href="#contato">
-                    Contato
-                </a>
+                <a href="#contato">Contato</a>
             </li>
 
         </ul>
@@ -2194,854 +1417,579 @@
     </nav>
 
 
-    <!-- =====================================================
+    <!-- =========================
          HERO
-    ===================================================== -->
+    ========================= -->
 
-    <main>
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                ✦ Tecnologia • IA • Automação
+            </div>
+
+            <h1>
+                Olá, eu sou
+                <span>Jessica Monteiro.</span>
+            </h1>
+
+            <p class="hero-description">
+                Desenvolvedora em formação, apaixonada por tecnologia,
+                Inteligência Artificial e automação. Transformo ideias
+                em soluções digitais, explorando novas possibilidades
+                através da tecnologia.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#sobre" class="btn primary">
+                    Conheça meu trabalho
+                </a>
+
+                <a
+                    href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn secondary"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
 
 
-        <section
-            class="hero"
-            id="inicio"
-        >
+        <!-- FOTO -->
+
+        <div class="hero-photo">
+
+            <div class="photo-glow"></div>
+
+            <div class="orbit"></div>
+
+            <div class="tech-orb orb-one">
+                &lt;/&gt;
+            </div>
+
+            <div class="tech-orb orb-two">
+                AI
+            </div>
+
+            <div class="tech-orb orb-three">
+                { }
+            </div>
+
+            <div class="photo-frame">
+
+                <img
+                    src="jessica-foto.png"
+                    alt="Jessica Monteiro"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-            <div class="hero-content">
+    <!-- =========================
+         SOBRE
+    ========================= -->
 
+    <section id="sobre" class="reveal">
 
-                <div class="hero-tag">
+        <div class="about-grid">
 
-                    Tecnologia • IA • Automação
+            <div>
 
+                <div class="section-label">
+                    Sobre mim
                 </div>
 
-
-                <h1>
-
-                    Olá, eu sou
-
-                    <span class="purple">
-                        Jessica Monteiro.
+                <h2 class="section-title">
+                    Tecnologia com
+                    <span style="color:#a855f7;">
+                        propósito.
                     </span>
-
-                </h1>
-
-
-                <div class="title-line"></div>
-
-
-                <p class="hero-description">
-
-                    Desenvolvedora em formação apaixonada por
-                    tecnologia, Inteligência Artificial e automação.
-                    Transformo ideias em soluções digitais modernas,
-                    inteligentes e funcionais.
-
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="#sobre"
-                        class="btn btn-primary"
-                    >
-                        Conheça meu trabalho →
-                    </a>
-
-
-                    <a
-                        href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-outline"
-                    >
-                        GitHub ↗
-                    </a>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- FOTO -->
-
-            <div class="hero-image">
-
-
-                <div class="photo-glow"></div>
-
-
-                <div class="tech-orb orb-one">
-                    &lt;/&gt;
-                </div>
-
-
-                <div class="tech-orb orb-two">
-                    AI
-                </div>
-
-
-                <div class="tech-orb orb-three">
-                    { }
-                </div>
-
-
-                <div class="photo-frame">
-
-                    <img
-                        src="jessica-foto.png"
-                        alt="Jessica Monteiro"
-                    >
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             SOBRE
-        ================================================== -->
-
-        <section id="sobre">
-
-
-            <div class="section-header reveal">
-
-                <div class="section-label">
-                    01 — Sobre mim
-                </div>
-
-                <h2 class="section-title">
-                    Tecnologia com propósito.
                 </h2>
 
                 <p class="section-description">
-
-                    Criatividade, tecnologia e curiosidade
-                    para transformar problemas em possibilidades.
-
+                    Sou Jessica Monteiro, uma profissional apaixonada
+                    por tecnologia e pelo potencial que ela possui
+                    para transformar processos, negócios e experiências.
                 </p>
 
             </div>
 
 
-            <div class="about-grid">
-
-
-                <div class="about-text reveal">
-
-
-                    <p>
-
-                        Minha relação com tecnologia vai além
-                        de simplesmente aprender ferramentas.
-                        Gosto de entender como as coisas funcionam,
-                        identificar problemas e encontrar maneiras
-                        melhores de resolvê-los.
-
-                    </p>
-
-
-                    <p>
-
-                        Venho desenvolvendo minhas habilidades
-                        em programação, Inteligência Artificial,
-                        automação, desenvolvimento web e
-                        tecnologias em nuvem.
-
-                    </p>
-
-
-                    <p>
-
-                        Minha jornada é baseada em aprendizado
-                        contínuo e na busca por transformar
-                        conhecimento em projetos práticos.
-
-                    </p>
-
-
-                    <div class="about-highlight">
-
-                        <strong>
-                            Minha visão:
-                        </strong>
-
-                        usar tecnologia para tornar processos
-                        mais inteligentes, simples e eficientes.
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="info-cards">
-
-
-                    <div class="info-card reveal delay-1">
-
-                        <div class="info-icon">
-                            ◈
-                        </div>
-
-                        <h3>
-                            Inteligência Artificial
-                        </h3>
-
-                        <p>
-                            Explorando novas possibilidades
-                            através da IA.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-card reveal delay-2">
-
-                        <div class="info-icon">
-                            ⚡
-                        </div>
-
-                        <h3>
-                            Automação
-                        </h3>
-
-                        <p>
-                            Transformando tarefas repetitivas
-                            em processos inteligentes.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-card reveal delay-3">
-
-                        <div class="info-icon">
-                            &lt;/&gt;
-                        </div>
-
-                        <h3>
-                            Desenvolvimento
-                        </h3>
-
-                        <p>
-                            Criando soluções digitais modernas
-                            através da programação.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-card reveal delay-4">
-
-                        <div class="info-icon">
-                            ✦
-                        </div>
-
-                        <h3>
-                            Evolução
-                        </h3>
-
-                        <p>
-                            Aprendendo constantemente novas
-                            tecnologias e ferramentas.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             TRAJETÓRIA
-        ================================================== -->
-
-        <section id="trajetoria">
-
-
-            <div class="section-header reveal">
-
-                <div class="section-label">
-                    02 — Trajetória
-                </div>
-
-                <h2 class="section-title">
-                    Em constante evolução.
-                </h2>
-
-                <p class="section-description">
-
-                    Minha trajetória é construída através de
-                    aprendizado, prática e novos desafios.
-
-                </p>
-
-            </div>
-
-
-            <div class="timeline">
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-year">
-                        TECNOLOGIA
-                    </div>
-
-                    <h3>
-                        Descobrindo o desenvolvimento
-                    </h3>
-
-                    <p>
-
-                        Comecei a aprofundar meus conhecimentos
-                        em tecnologia e programação, buscando
-                        compreender como sistemas e aplicações
-                        são construídos.
-
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-year">
-                        AUTOMAÇÃO
-                    </div>
-
-                    <h3>
-                        Transformando tarefas em processos
-                    </h3>
-
-                    <p>
-
-                        Passei a explorar automações e maneiras
-                        de utilizar tecnologia para reduzir
-                        tarefas manuais e aumentar produtividade.
-
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-year">
-                        INTELIGÊNCIA ARTIFICIAL
-                    </div>
-
-                    <h3>
-                        Explorando o potencial da IA
-                    </h3>
-
-                    <p>
-
-                        A Inteligência Artificial passou a fazer
-                        parte da minha jornada, abrindo novas
-                        possibilidades para criação, automação
-                        e desenvolvimento.
-
-                    </p>
-
-                </div>
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-year">
-                        PRÓXIMO NÍVEL
-                    </div>
-
-                    <h3>
-                        Construindo o futuro
-                    </h3>
-
-                    <p>
-
-                        Continuo estudando, criando projetos e
-                        desenvolvendo novas habilidades para
-                        transformar tecnologia em soluções reais.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             O QUE EU FAÇO
-        ================================================== -->
-
-        <section id="servicos">
-
-
-            <div class="section-header reveal">
-
-                <div class="section-label">
-                    03 — O que eu faço
-                </div>
-
-                <h2 class="section-title">
-                    Ideias transformadas em tecnologia.
-                </h2>
-
-                <p class="section-description">
-
-                    Áreas que fazem parte da minha atuação e
-                    dos projetos que estou desenvolvendo.
-
-                </p>
-
-            </div>
-
-
-            <div class="services">
-
-
-                <article class="service reveal">
-
-                    <div class="service-number">
-                        01
-                    </div>
-
-                    <div class="service-icon">
-                        ◈
-                    </div>
-
-                    <h3>
-                        Inteligência Artificial
-                    </h3>
-
-                    <p>
-
-                        Exploração e aplicação de ferramentas
-                        de IA para criação, produtividade,
-                        análise e desenvolvimento de soluções.
-
-                    </p>
-
-                </article>
-
-
-                <article class="service reveal delay-1">
-
-                    <div class="service-number">
-                        02
-                    </div>
-
-                    <div class="service-icon">
-                        ⚡
-                    </div>
-
-                    <h3>
-                        Automação
-                    </h3>
-
-                    <p>
-
-                        Desenvolvimento de ideias e processos
-                        automatizados para reduzir trabalho
-                        manual e melhorar eficiência.
-
-                    </p>
-
-                </article>
-
-
-                <article class="service reveal delay-2">
-
-                    <div class="service-number">
-                        03
-                    </div>
-
-                    <div class="service-icon">
-                        &lt;/&gt;
-                    </div>
-
-                    <h3>
-                        Desenvolvimento
-                    </h3>
-
-                    <p>
-
-                        Criação de aplicações, páginas e
-                        soluções digitais utilizando programação
-                        e tecnologias modernas.
-
-                    </p>
-
-                </article>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             TECNOLOGIAS
-        ================================================== -->
-
-        <section id="tecnologias">
-
-
-            <div class="section-header reveal">
-
-                <div class="section-label">
-                    04 — Tecnologias
-                </div>
-
-                <h2 class="section-title">
-                    Ferramentas da minha jornada.
-                </h2>
-
-                <p class="section-description">
-
-                    Tecnologias e áreas que estou estudando,
-                    utilizando e explorando.
-
-                </p>
-
-            </div>
-
-
-            <div class="skills">
-
-
-                <div class="skill reveal">
-
-                    <div class="skill-icon">
-                        PY
-                    </div>
-
-                    <h3>
-                        Python
-                    </h3>
-
-                    <p>
-                        Programação, automação e desenvolvimento
-                        de soluções.
-                    </p>
-
-                </div>
-
-
-                <div class="skill reveal delay-1">
-
-                    <div class="skill-icon">
-                        AI
-                    </div>
-
-                    <h3>
-                        Inteligência Artificial
-                    </h3>
-
-                    <p>
-                        Ferramentas e aplicações de IA para
-                        produtividade e criação.
-                    </p>
-
-                </div>
-
-
-                <div class="skill reveal delay-2">
-
-                    <div class="skill-icon">
-                        JS
-                    </div>
-
-                    <h3>
-                        JavaScript
-                    </h3>
-
-                    <p>
-                        Desenvolvimento web e interfaces
-                        interativas.
-                    </p>
-
-                </div>
-
-
-                <div class="skill reveal delay-3">
-
-                    <div class="skill-icon">
-                        AWS
-                    </div>
-
-                    <h3>
-                        Cloud
-                    </h3>
-
-                    <p>
-                        Estudos relacionados a computação
-                        em nuvem e AWS.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             PROJETOS
-        ================================================== -->
-
-        <section id="projetos">
-
-
-            <div class="section-header reveal">
-
-                <div class="section-label">
-                    05 — Projetos
-                </div>
-
-                <h2 class="section-title">
-                    O que estou construindo.
-                </h2>
-
-                <p class="section-description">
-
-                    Projetos que representam minha evolução
-                    e meus interesses em tecnologia.
-
-                </p>
-
-            </div>
-
-
-            <div class="projects">
-
-
-                <article class="project reveal">
-
-                    <div class="project-number">
-                        PROJECT 01
-                    </div>
-
-                    <h3>
-                        SentinelSOC
-                    </h3>
-
-                    <p>
-
-                        Projeto voltado para gerenciamento
-                        de incidentes e operações relacionadas
-                        à segurança da informação.
-
-                    </p>
-
-                    <a
-                        href="https://github.com/soujesk/SentinelSOC"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-                        Ver no GitHub →
-                    </a>
-
-                </article>
-
-
-                <article class="project reveal delay-1">
-
-                    <div class="project-number">
-                        PROJECT 02
-                    </div>
-
-                    <h3>
-                        Projetos com IA
-                    </h3>
-
-                    <p>
-
-                        Projetos experimentais utilizando
-                        Inteligência Artificial para criação,
-                        produtividade e automação.
-
-                    </p>
-
-                    <span class="project-link">
-                        Em desenvolvimento
-                    </span>
-
-                </article>
-
-
-                <article class="project reveal delay-2">
-
-                    <div class="project-number">
-                        PROJECT 03
-                    </div>
-
-                    <h3>
-                        Automação
-                    </h3>
-
-                    <p>
-
-                        Desenvolvimento de soluções para
-                        automatizar tarefas e processos
-                        utilizando tecnologia.
-
-                    </p>
-
-                    <span class="project-link">
-                        Em desenvolvimento
-                    </span>
-
-                </article>
-
-
-                <article class="project reveal delay-3">
-
-                    <div class="project-number">
-                        PROJECT 04
-                    </div>
-
-                    <h3>
-                        Meu Portfólio
-                    </h3>
-
-                    <p>
-
-                        Uma experiência digital criada para
-                        apresentar minha trajetória, habilidades
-                        e projetos.
-
-                    </p>
-
-                    <a
-                        href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-                        Ver código →
-                    </a>
-
-                </article>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             CONTATO
-        ================================================== -->
-
-        <section id="contato">
-
-
-            <div class="contact-box reveal">
-
-
-                <div class="section-label">
-                    06 — Contato
-                </div>
-
-
-                <h2>
-                    Vamos criar algo?
-                </h2>
-
+            <div class="about-box">
+
+                <h3>
+                    Quem sou eu?
+                </h3>
 
                 <p>
-
-                    Estou aberta a novas ideias, projetos
-                    e oportunidades.
-
+                    Estou construindo minha trajetória na área de
+                    tecnologia, desenvolvendo conhecimentos em
+                    programação, Inteligência Artificial, automação
+                    e soluções digitais.
                 </p>
 
+                <br>
 
-                <div class="contact-links">
+                <p>
+                    Meu objetivo é unir criatividade, tecnologia e
+                    estratégia para criar soluções inteligentes,
+                    modernas e eficientes.
+                </p>
 
+            </div>
 
-                    <a
-                        href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-outline"
-                    >
-                        GitHub
-                    </a>
+        </div>
 
-
-                    <!--
-                    COLOQUE SEU LINKEDIN AQUI
-                    -->
-
-                    <a
-                        href="#"
-                        class="btn btn-outline"
-                    >
-                        LinkedIn
-                    </a>
+    </section>
 
 
-                    <!--
-                    TROQUE PELO SEU E-MAIL
-                    -->
+    <!-- =========================
+         TRAJETÓRIA
+    ========================= -->
 
-                    <a
-                        href="mailto:SEUEMAIL@exemplo.com"
-                        class="btn btn-primary"
-                    >
-                        E-mail
-                    </a>
+    <section id="trajetoria" class="reveal">
+
+        <div class="section-label">
+            Trajetória
+        </div>
+
+        <h2 class="section-title">
+            Em constante
+            <span style="color:#a855f7;">
+                evolução.
+            </span>
+        </h2>
+
+        <p class="section-description">
+            Minha jornada na tecnologia é construída através de
+            aprendizado contínuo, projetos práticos e exploração
+            de novas ferramentas.
+        </p>
 
 
-                </div>
+        <div class="timeline">
 
+            <div class="timeline-card">
+
+                <h3>
+                    Tecnologia
+                </h3>
+
+                <p>
+                    Construção de conhecimentos em desenvolvimento,
+                    infraestrutura, sistemas e ferramentas digitais.
+                </p>
 
             </div>
 
 
-        </section>
+            <div class="timeline-card">
+
+                <h3>
+                    Inteligência Artificial
+                </h3>
+
+                <p>
+                    Exploração de ferramentas de IA para criação,
+                    produtividade, automação e desenvolvimento
+                    de novas soluções.
+                </p>
+
+            </div>
 
 
-    </main>
+            <div class="timeline-card">
+
+                <h3>
+                    Automação
+                </h3>
+
+                <p>
+                    Interesse em transformar tarefas repetitivas
+                    em processos mais rápidos, inteligentes
+                    e eficientes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-    <!-- =====================================================
+    <!-- =========================
+         O QUE EU FAÇO
+    ========================= -->
+
+    <section id="servicos" class="reveal">
+
+        <div class="section-label">
+            O que eu faço
+        </div>
+
+        <h2 class="section-title">
+            Criando soluções
+            <span style="color:#a855f7;">
+                digitais.
+            </span>
+        </h2>
+
+        <p class="section-description">
+            Áreas que fazem parte dos meus estudos, projetos
+            e desenvolvimento profissional.
+        </p>
+
+
+        <div class="services-grid">
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Desenvolvimento
+                </h3>
+
+                <p>
+                    Desenvolvimento de aplicações e soluções
+                    utilizando programação e tecnologias modernas.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Inteligência Artificial
+                </h3>
+
+                <p>
+                    Utilização de IA para criação de soluções,
+                    produtividade, conteúdo e novas possibilidades.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Automação
+                </h3>
+
+                <p>
+                    Criação de processos automatizados para
+                    reduzir tarefas manuais e aumentar eficiência.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TECNOLOGIAS
+    ========================= -->
+
+    <section id="tecnologias" class="reveal">
+
+        <div class="section-label">
+            Tecnologias
+        </div>
+
+        <h2 class="section-title">
+            Ferramentas que
+            <span style="color:#a855f7;">
+                estudo e utilizo.
+            </span>
+        </h2>
+
+
+        <div class="tech-grid">
+
+            <div class="tech-item">
+                <strong>Python</strong>
+                <span>Desenvolvimento</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>HTML</strong>
+                <span>Web</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>CSS</strong>
+                <span>Web Design</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>JavaScript</strong>
+                <span>Web</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>Git</strong>
+                <span>Versionamento</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>GitHub</strong>
+                <span>Projetos</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>IA</strong>
+                <span>Inteligência Artificial</span>
+            </div>
+
+            <div class="tech-item">
+                <strong>Automação</strong>
+                <span>Processos</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJETOS
+    ========================= -->
+
+    <section id="projetos" class="reveal">
+
+        <div class="section-label">
+            Projetos
+        </div>
+
+        <h2 class="section-title">
+            O que estou
+            <span style="color:#a855f7;">
+                construindo.
+            </span>
+        </h2>
+
+        <p class="section-description">
+            Alguns dos projetos e experimentos que fazem parte
+            da minha jornada na tecnologia.
+        </p>
+
+
+        <div class="projects-grid">
+
+
+            <!-- SENTINELSOC -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01
+                </div>
+
+                <h3>
+                    SentinelSOC
+                </h3>
+
+                <p>
+                    Projeto voltado para gerenciamento de incidentes
+                    e conceitos relacionados à segurança,
+                    monitoramento e tecnologia.
+                </p>
+
+                <a
+                    href="https://github.com/soujesk/SentinelSOC"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    Ver projeto →
+                </a>
+
+            </div>
+
+
+            <!-- IA -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02
+                </div>
+
+                <h3>
+                    Projetos com IA
+                </h3>
+
+                <p>
+                    Projetos em desenvolvimento utilizando
+                    Inteligência Artificial para explorar
+                    novas formas de criação e produtividade.
+                </p>
+
+                <span class="project-link">
+                    Em desenvolvimento
+                </span>
+
+            </div>
+
+
+            <!-- AUTOMAÇÃO -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 03
+                </div>
+
+                <h3>
+                    Automação
+                </h3>
+
+                <p>
+                    Soluções e experimentos voltados para
+                    automação de tarefas e otimização
+                    de processos.
+                </p>
+
+                <span class="project-link">
+                    Em desenvolvimento
+                </span>
+
+            </div>
+
+
+            <!-- PORTFÓLIO -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 04
+                </div>
+
+                <h3>
+                    Meu Portfólio
+                </h3>
+
+                <p>
+                    Este próprio projeto representa minha evolução
+                    no desenvolvimento web e minha identidade
+                    profissional na tecnologia.
+                </p>
+
+                <a
+                    href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    Ver no GitHub →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTATO
+    ========================= -->
+
+    <section id="contato" class="contact reveal">
+
+        <div class="section-label">
+            Contato
+        </div>
+
+        <h2 class="section-title">
+            Vamos criar algo
+            <span style="color:#a855f7;">
+                incrível?
+            </span>
+        </h2>
+
+        <p class="section-description">
+            Estou aberta a conexões, oportunidades,
+            projetos e conversas sobre tecnologia,
+            Inteligência Artificial e automação.
+        </p>
+
+
+        <div class="contact-buttons">
+
+            <!-- E-MAIL -->
+
+            <a
+                href="mailto:jessicamonteiro.dev@gmail.com"
+                class="btn primary"
+            >
+                Enviar e-mail
+            </a>
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                href="https://www.linkedin.com/in/jessica-monteiro-244141188/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary"
+            >
+                LinkedIn
+            </a>
+
+
+            <!-- GITHUB -->
+
+            <a
+                href="https://github.com/jessicamchagas/jessicamchagas.github.io#jessicagithubio"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary"
+            >
+                GitHub
+            </a>
+
+        </div>
+
+
+        <a
+            href="mailto:jessicamonteiro.dev@gmail.com"
+            class="contact-email"
+        >
+            jessicamonteiro.dev@gmail.com
+        </a>
+
+    </section>
+
+
+    <!-- =========================
          FOOTER
-    ===================================================== -->
+    ========================= -->
 
     <footer>
 
@@ -3053,126 +2001,95 @@
     </footer>
 
 
-    <!-- =====================================================
+    <!-- =========================
          JAVASCRIPT
-    ===================================================== -->
+    ========================= -->
 
     <script>
 
-
-        /* =====================================================
+        /* =========================
            PARTÍCULAS
-        ===================================================== */
+        ========================= */
 
-        const particles =
+        const particlesContainer =
             document.getElementById("particles");
 
-
-        for (
-            let i = 0;
-            i < 55;
-            i++
-        ) {
+        for (let i = 0; i < 55; i++) {
 
             const particle =
-                document.createElement("span");
+                document.createElement("div");
 
-
-            particle.className =
-                "particle";
-
+            particle.classList.add("particle");
 
             particle.style.left =
                 Math.random() * 100 + "%";
 
+            particle.style.top =
+                Math.random() * 100 + "%";
 
             particle.style.animationDuration =
-                (Math.random() * 16 + 10) + "s";
-
+                (5 + Math.random() * 10) + "s";
 
             particle.style.animationDelay =
-                -(Math.random() * 20) + "s";
-
+                Math.random() * 8 + "s";
 
             particle.style.opacity =
-                Math.random() * .6;
+                Math.random();
 
-
-            particles.appendChild(
+            particlesContainer.appendChild(
                 particle
             );
-
         }
 
 
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
+        /* =========================
+           REVEAL AO SCROLL
+        ========================= */
 
         const reveals =
             document.querySelectorAll(".reveal");
 
-
-        const observer =
+        const revealObserver =
             new IntersectionObserver(
+                (entries) => {
 
-                entries => {
+                    entries.forEach(entry => {
 
-                    entries.forEach(
-                        entry => {
+                        if (entry.isIntersecting) {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "active"
-                                );
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
+                            entry.target.classList.add(
+                                "active"
+                            );
 
                         }
-                    );
+
+                    });
 
                 },
-
                 {
-                    threshold: .12
+                    threshold: 0.12
                 }
-
             );
 
+        reveals.forEach(element => {
 
-        reveals.forEach(
-            element => {
+            revealObserver.observe(element);
 
-                observer.observe(
-                    element
-                );
-
-            }
-        );
+        });
 
 
-        /* =====================================================
-           NAVBAR AO ROLAR
-        ===================================================== */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         const navbar =
             document.getElementById("navbar");
-
 
         window.addEventListener(
             "scroll",
             () => {
 
-                if (
-                    window.scrollY > 40
-                ) {
+                if (window.scrollY > 40) {
 
                     navbar.classList.add(
                         "scrolled"
@@ -3190,23 +2107,19 @@
         );
 
 
-        /* =====================================================
+        /* =========================
            CURSOR GLOW
-        ===================================================== */
+        ========================= */
 
         const cursorGlow =
-            document.getElementById(
-                "cursorGlow"
-            );
-
+            document.getElementById("cursorGlow");
 
         document.addEventListener(
             "mousemove",
-            event => {
+            (event) => {
 
                 cursorGlow.style.left =
                     event.clientX + "px";
-
 
                 cursorGlow.style.top =
                     event.clientY + "px";
@@ -3215,67 +2128,54 @@
         );
 
 
-        /* =====================================================
-           MOVIMENTO SUAVE DA FOTO
-        ===================================================== */
+        /* =========================
+           MOVIMENTO DA FOTO
+        ========================= */
 
-        const photo =
-            document.querySelector(
-                ".photo-frame"
-            );
-
+        const photoFrame =
+            document.querySelector(".photo-frame");
 
         document.addEventListener(
             "mousemove",
-            event => {
+            (event) => {
 
                 if (
-                    window.innerWidth < 900
+                    window.innerWidth < 800
                 ) {
                     return;
                 }
 
-
                 const x =
-                    (
-                        event.clientX /
+                    (event.clientX /
                         window.innerWidth -
-                        .5
-                    ) * 8;
-
+                        0.5) * 8;
 
                 const y =
-                    (
-                        event.clientY /
+                    (event.clientY /
                         window.innerHeight -
-                        .5
-                    ) * 8;
+                        0.5) * 8;
 
-
-                photo.style.transform =
+                photoFrame.style.transform =
                     `translate(${x}px, ${y}px)`;
-
             }
         );
 
 
-        /* =====================================================
-           RESET FOTO
-        ===================================================== */
+        /* =========================
+           RESET DO MOVIMENTO
+        ========================= */
 
         document.addEventListener(
             "mouseleave",
             () => {
 
-                photo.style.transform =
-                    "";
+                photoFrame.style.transform =
+                    "translate(0, 0)";
 
             }
         );
 
-
     </script>
-
 
 </body>
 
